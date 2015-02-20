@@ -5,6 +5,7 @@
 	<form id="game">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
 		<field name="welcome">
+			<grammar src="grammar.xml#START"/>
 			<prompt>Hello, you are going to play a liar's dice game. Please roll the dice</prompt>
 		</field>
 		<field name="bid">
