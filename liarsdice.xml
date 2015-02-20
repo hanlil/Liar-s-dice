@@ -4,9 +4,15 @@
 <vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-US">
 	<form id="game">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
-		<field name="welcome">
-			<grammar src="grammar.xml#START"/>
+		<field name="welcome" type="boolean">
 			<prompt>Hello, you are going to play a liar's dice game. Please roll the dice</prompt>
+			<filled mode="all" namelist="welcome">
+				<if cond="welcome">
+					<prompt>
+						Thank you for your reservation
+					</prompt>
+				</if>
+			</filled>
 		</field>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
