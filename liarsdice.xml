@@ -6,7 +6,7 @@
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
 		<initial name="welcome">
 			<prompt bargein="false">
-				<emphasis level="strong">Hello</emphasis>, and welcome to the travel booking system. You can now make your reservation.
+				Hello
 			</prompt>
 			<nomatch count="2">
 				<prompt>
@@ -24,7 +24,6 @@
 				This is not a bid<break/><reprompt/>
 			</nomatch>
 		</field>
-		<field name="count"/>
 		<filled mode="all" namelist="count">
 			<prompt>
 				Your bid is <value expr="count"/>
