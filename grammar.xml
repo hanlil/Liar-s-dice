@@ -4,8 +4,10 @@
 <grammar xmlns="http://www.w3.org/2001/06/grammar" root="START"  xml:lang="en-US" version="1.0">
 
   <rule id="START" scope="public">
-    <item>done</item>
-    <tag>out="true";</tag>
+    <item>
+      <item>done</item>
+      <tag>out="true";</tag>
+    </item>
   </rule>
   
   <rule id="REVEAL" scope="public">
@@ -69,8 +71,10 @@
   </rule>
   
   <rule id="COUNT" scope="public">
-    <ruleref uri="#NUMBERS"/>
-    <tag>out=rules.NUMBERS</tag>
+    <item>
+      <ruleref uri="#NUMBERS"/>
+      <tag>out=rules.NUMBERS</tag>
+    </item>
   </rule>
   
   <rule id="FACE">
