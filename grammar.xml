@@ -38,7 +38,8 @@
       </item>
       <item>
         <ruleref uri="#COUNT"/>
-        <tag>out.count=rules.COUNT;</tag>
+        <ruleref uri="#FACE"/>
+        <tag>out=rules.COUNT+ ' ' + rules.FACE;</tag>
       </item>
     </one-of>
   </rule>
