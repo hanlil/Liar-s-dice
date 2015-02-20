@@ -48,7 +48,7 @@
     <item>liar</item>
   </rule>
   
-  <rule id="COUNT">
+  <rule id="COUNT" scope="public">
     <one-of>
       <item>one</item>
       <item>two</item>
