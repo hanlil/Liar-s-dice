@@ -34,7 +34,7 @@
     <one-of>
       <item>
         <ruleref uri="#LIAR"/>
-        <tag>out.liar=rules.LIAR;</tag>
+        <tag>out=rules.LIAR;</tag>
       </item>
       <item>
         <ruleref uri="#COUNT"/>
