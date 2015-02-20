@@ -3,9 +3,10 @@
   PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.speech.kth.se/~gabriel/voicexml/vxml.dtd">
 <vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-US">
 	<form id="game">
+		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
 		<initial><prompt>Hello</prompt></initial>
 		<field name="bid">
-			<grammar src="grammar.xml#BID" type="application/grammar-xml" maxage="0"/>
+			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
 			<nomatch>
 				This is not a bid<break/><reprompt/>
