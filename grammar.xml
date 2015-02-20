@@ -36,7 +36,85 @@
       </item>
     </one-of>
   </rule>
-
+  
+  <rule id="REVEAL" scope="public">
+    <item>
+      <ruleref uri="#FACE"/>
+      <tag>out.d1=rules.FACE;</tag>
+    </item>
+    <item>
+      <ruleref uri="#FACE"/>
+      <tag>out.d2=rules.FACE;</tag>
+    </item>
+    <item>
+      <ruleref uri="#FACE"/>
+      <tag>out.d3=rules.FACE;</tag>
+    </item>
+    <item>
+      <ruleref uri="#FACE"/>
+      <tag>out.d4=rules.FACE;</tag>
+    </item>
+    <item>
+      <ruleref uri="#FACE"/>
+      <tag>out.d5=rules.FACE;</tag>
+    </item>
+  </rule>
+  
+  <rule id="BID" scope="public">
+    <one-of>
+      <item>
+        <ruleref uri="#LIAR"/>
+        <tag>out.liar=rules.LIAR</tag>
+      </item>
+      <item>
+        <ruleref uri="#COUNT"/>
+        <ruleref uri="#FACE"/>
+        <tag>out.count=rules.COUNT;out.face=rules.FACE;</tag>
+      </item>
+    </one-of>
+  </rule>
+  
+  <rule id="LIAR">
+    <item>liar</item>
+  </rule>
+  
+  <rule id="COUNT">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
+      <item>seven</item>
+      <item>eight</item>
+      <item>nine</item>
+      <item>ten</item>
+      <item>eleven</item>
+      <item>twelve</item>
+      <item>thirteen</item>
+      <item>fourteen</item>
+      <item>fifteen</item>
+    </one-of>
+  </rule>
+  
+  <rule id="FACE">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
+      <item>ones</item>
+      <item>twos</item>
+      <item>threes</item>
+      <item>fours</item>
+      <item>fives</item>
+      <item>sixes</item>
+    </one-of>
+  </rule>
+  
   <rule id="FILLER">
     <one-of>
       <item>I want</item>
