@@ -12,7 +12,6 @@
 			<nomatch>
 				<assign name="welcome" expr="true"/>
 			</nomatch>
-
 		</initial>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
