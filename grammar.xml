@@ -6,7 +6,7 @@
   <rule id="START" scope="public">
     <item>
       <item>done</item>
-      <tag>out="true";</tag>
+      <tag>out=rules.START;</tag>
     </item>
   </rule>
   
