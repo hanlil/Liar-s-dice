@@ -62,11 +62,13 @@
   
   <rule id="BID" scope="public">
     <one-of>
-      
+      <item>
+        <ruleref uri="#LIAR"/>
+        <tag>out.liar=rules.LIAR</tag>
+      </item>
       <item>
         <ruleref uri="#COUNT"/>
-        <ruleref uri="#FACE"/>
-        <tag>out.count=rules.COUNT;out.face=rules.FACE;</tag>
+        <tag>out.count=rules.COUNT;</tag>
       </item>
     </one-of>
   </rule>
