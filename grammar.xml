@@ -87,15 +87,9 @@
     <tag>out=rules.FACE;</tag>  
   </rule>
   
-    <rule id="DICE3">
-    <one-of>
-      <item>one</item>
-      <item>two</item>
-      <item>three</item>
-      <item>four</item>
-      <item>five</item>
-      <item>six</item>
-    </one-of>
+  <rule id="DICE3">
+    <ruleref uri="#FACE"/>
+    <tag>out=rules.FACE;</tag>
   </rule>
   
   <rule id="DICE4">
