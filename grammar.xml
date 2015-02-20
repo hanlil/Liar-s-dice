@@ -48,7 +48,7 @@
     <item>liar</item>
   </rule>
   
-  <rule id="COUNT" scope="public">
+  <rule id="NUMBERS">
     <one-of>
       <item>one</item>
       <item>two</item>
@@ -66,6 +66,11 @@
       <item>fourteen</item>
       <item>fifteen</item>
     </one-of>
+  </rule>
+  
+  <rule id="COUNT" scope="public">
+    <ruleref uri="#NUMBERS"/>
+    <tag>out=rules.NUMBERS</tag>
   </rule>
   
   <rule id="FACE">
