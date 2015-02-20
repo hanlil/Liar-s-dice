@@ -8,25 +8,12 @@
   </rule>
   
   <rule id="REVEAL" scope="public">
-    <item>
-      <ruleref uri="#FACE"/>
-      <tag>out.d1=rules.FACE;</tag>
-    </item>
-    <item>
-      <ruleref uri="#FACE"/>
-      <tag>out.d2=rules.FACE;</tag>
-    </item>
-    <item>
-      <ruleref uri="#FACE"/>
-      <tag>out.d3=rules.FACE;</tag>
-    </item>
-    <item>
-      <ruleref uri="#FACE"/>
-      <tag>out.d4=rules.FACE;</tag>
-    </item>
-    <item>
-      <ruleref uri="#FACE"/>
-      <tag>out.d5=rules.FACE;</tag>
+    <ruleref uri="#DICE1"/>
+    <ruleref uri="#DICE2"/>
+    <ruleref uri="#DICE3"/>
+    <ruleref uri="#DICE4"/>
+    <ruleref uri="#DICE5"/>
+    <tag>out=rules.DICE1+' '+rules.DICE2+' '+rules.DICE3+' '+rules.DICE4+' '+rules.DICE5;</tag>
     </item>
   </rule>
   
@@ -68,7 +55,7 @@
     </one-of>
   </rule>
   
-  <rule id="COUNT" scope="public">
+  <rule id="COUNT">
     <ruleref uri="#NUMBERS"/>
     <tag>out=rules.NUMBERS;</tag>
   </rule>
@@ -88,6 +75,37 @@
       <item>fives</item>
       <item>sixes</item>
     </one-of>
+  </rule>
+  
+  <rule id="DICE1">
+    <ruleref uri="#FACE"/>
+    <tag>out=rules.FACE;</tag>
+  </rule>
+  
+  <rule id="DICE2">
+    <ruleref uri="#FACE"/>
+    <tag>out=rules.FACE;</tag>  
+  </rule>
+  
+    <rule id="DICE3">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
+    </one-of>
+  </rule>
+  
+  <rule id="DICE4">
+    <ruleref uri="#FACE"/>
+    <tag>out=rules.FACE;</tag>
+  </rule>
+  
+  <rule id="DICE5">
+    <ruleref uri="#FACE"/>
+    <tag>out=rules.FACE;</tag>
   </rule>
 
 </grammar>
