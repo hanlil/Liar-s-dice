@@ -4,10 +4,8 @@
 <grammar xmlns="http://www.w3.org/2001/06/grammar" root="START"  xml:lang="en-US" version="1.0">
 
   <rule id="START" scope="public">
-    <item>
-      <item>done</item>
-      <tag>done</tag>
-    </item>
+    <item>done</item>
+    <tag>out=done</tag>
   </rule>
   
   <rule id="REVEAL" scope="public">
