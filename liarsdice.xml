@@ -9,7 +9,7 @@
 			<filled mode="all" namelist="welcome">
 				<if cond="welcome">
 					<prompt>
-						Ok, let's start
+						Ok, let's start<break/>
 					</prompt>
 				</if>
 			</filled>
