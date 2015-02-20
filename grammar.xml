@@ -7,34 +7,6 @@
     <item repeat="0-1">
       <ruleref uri="#FILLER"/>
     </item>
-    <one-of>
-      <item>
-        <ruleref uri="#ORIGIN"/>
-        <tag>out.origin=rules.ORIGIN;</tag>
-      </item>
-      <item>
-        <ruleref uri="#DESTINATION"/>
-        <tag>out.destination=rules.DESTINATION;</tag>
-      </item>
-      <item>
-        <ruleref uri="#ORIGIN"/>
-        <ruleref uri="#DESTINATION"/>
-        <tag>out.origin=rules.ORIGIN;out.destination=rules.DESTINATION;</tag>
-      </item>
-      <item>
-        <ruleref uri="#ORIGIN"/>
-        <ruleref uri="#DESTINATION"/>
-        <ruleref uri="#DATE"/>
-        <tag>out.origin=rules.ORIGIN;out.destination=rules.DESTINATION;out.date=rules.DATE;</tag>
-      </item>
-      <item>
-        <ruleref uri="#ORIGIN"/>
-        <ruleref uri="#DESTINATION"/>
-        <ruleref uri="#DATE"/>
-        <ruleref uri="#TIME"/>
-        <tag>out.origin=rules.ORIGIN;out.destination=rules.DESTINATION;out.date=rules.DATE;out.time=rules.TIME;</tag>
-      </item>
-    </one-of>
   </rule>
   
   <rule id="REVEAL" scope="public">
