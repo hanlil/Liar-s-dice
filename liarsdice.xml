@@ -19,7 +19,7 @@
 		</initial>
 		<field name="count"/>
 		<field name="face"/>
-		<field name = "bid">
+		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
 			<nomatch>
