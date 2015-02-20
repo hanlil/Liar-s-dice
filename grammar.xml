@@ -5,6 +5,7 @@
 
   <rule id="START" scope="public">
     <item>done</item>
+    <tag>out.welcome="true";</tag>
   </rule>
   
   <rule id="REVEAL" scope="public">
