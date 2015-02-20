@@ -5,7 +5,10 @@
 	<form id="game">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
 		<initial name="welcome">
-			<prompt>Hello, could you please roll the dice and then say done</prompt>
+			<prompt>Hello, you are going to play a liar's dice game. Please roll the dice</prompt>
+			<nomatch>
+				<assign name="welcome" expr="true"/>
+			</nomatch>
 		</initial>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
