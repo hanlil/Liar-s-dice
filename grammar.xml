@@ -66,6 +66,7 @@
       <item>fourteen</item>
       <item>fifteen</item>
     </one-of>
+    <tag>out=rules.COUNT</tag>
   </rule>
   
   <rule id="FACE">
