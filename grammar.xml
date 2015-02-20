@@ -71,10 +71,8 @@
   </rule>
   
   <rule id="COUNT" scope="public">
-    <item>
-      <ruleref uri="#NUMBERS"/>
-      <tag>out=rules.NUMBERS</tag>
-    </item>
+    <ruleref uri="#NUMBERS"/>
+    <tag>out=rules.NUMBERS;</tag>
   </rule>
   
   <rule id="FACE">
