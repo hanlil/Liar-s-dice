@@ -17,6 +17,8 @@
 				<reprompt/>
 			</nomatch>
 		</initial>
+		<field name="count"/>
+		<field name="face"/>
 		<field name = "bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
@@ -29,8 +31,6 @@
 				Your bid is <value expr="count"/>
 			</prompt>
 		</filled>
-		<field name="count"/>
-		<field name="face"/>
 		<field name="origin">
 			<grammar src="grammar.xml#ORIGIN"/>
 			<prompt>From where do you want to go?</prompt>
