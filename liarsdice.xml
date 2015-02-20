@@ -22,6 +22,7 @@
 			</nomatch>
 		</field>
 		<field name="count">
+			<grammar src="grammar.xml#COUNT"/>
 			<prompt>Say your count</prompt>
 		</field>
 		<filled mode="all" namelist="count">
