@@ -6,7 +6,7 @@
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
 		<field name="welcome" type="boolean">
 			<prompt bargein="false">
-			Hello, we are going to play a game of liar's dice. Please roll the dice. Are you ready?
+				Hello, we are going to play a game of liar's dice. Please roll the dice. Are you ready?
 			</prompt>
 			<filled mode="all" namelist="welcome">
 				<if cond="welcome">
