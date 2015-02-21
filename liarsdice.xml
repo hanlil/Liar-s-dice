@@ -35,6 +35,22 @@
 				That can't be right<break/><reprompt/>
 			</nomatch>
 		</field>
-		
+		<field name="check" type="boolean">
+			<prompt>
+				<value expr="reveal"/>, is that correct?
+			</prompt>
+			<filled mode="all" namelist="check">
+				<if cond="check">
+					<prompt>
+						Alright
+					</prompt>
+				<else/>
+					<promt>
+						Ok, let's try again
+					</promt>
+					<clear namelist="reveal check"/>
+				</if>
+			</filled>
+		</field>
 	</form>
 </vxml>
