@@ -29,7 +29,7 @@
 			</prompt>
 		</filled>
 		<field name="reveal">
-			<grammar src="gramma.xml#REVEAL"/>
+			<grammar src="grammar.xml#REVEAL"/>
 			<prompt>What dice vaules do you have?</prompt>
 			<nomatch>
 				That can't be right<break/><reprompt/>
