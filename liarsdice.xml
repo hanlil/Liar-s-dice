@@ -8,6 +8,9 @@
 			<prompt bargein="false">
 				Hello, we are going to play a game of liar's dice. Please roll the dice. Are you ready?
 			</prompt>
+			<nomatch>
+				<assign name="welcome" expr="true"/>
+			</nomatch>
 
 			<filled mode="all" namelist="welcome">
 				<if cond="welcome">
