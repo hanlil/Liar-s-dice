@@ -122,36 +122,62 @@ function binomial(k,n){
 
 
 
-function AI1(previous_bid){
+function AI1_int(previous_bid){
 	var threshold = 0.3;
 	var prob = probability_AI1(previous_bid[0]+1,previous_bid[1]);
 	var max_prob = 0;
 	var max_face = 0;
-	if(prob < threshold){
+	if(prob >= threshold){
+		return [previous_bid[0]+1,previous_bid[1]];
+	}
+	else{
 		for(var i=previous_bid[1]+1; i<7;i++){
 			prob = probability_AI1(previous_bid[0],i);
 			if(prob>max_prob){
-				max_face = i
+				max_face = i;
 				max_prob = prob;
 			}
 		}
 	}
 	if(max_prob >= threshold){
-		prob = max_prob;
+		return [previous_bid[0],max_face];
 	}
-	else prob = 0;
-	return prob;
+	else {
+		return [0,0];
+	}
 }
 
+function AI1(string_bid){
+	var previous_bid = convert_from_string_to_int_bid(string_bid);
+	next_bid = AI1_int(previous_bid);
+	if(next_bid[0]==0){
+		return "liar";
+	}
+	else
+		return convert_from_int_to_string_bid(next_bid);
+}
 
-function AI2(previous_bid){
+function AI2_int(previous_bid){
 	var threshold = 0.2;
 	var prob = probability_AI2(previous_bid[0]+1,previous_bid[1]);
-	if(prob < threshold){
-		prob =0;
+	if(prob >= threshold){
+		return [previous_bid[0]+1,previous_bid[1]];
 	}
-	return prob;
+	else{
+		return [0,0];
+	}
 }
+
+function AI2(string_bid){
+	var previous_bid = convert_from_string_to_int_bid(string_bid);
+	next_bid = AI2_int(previous_bid);
+	if(next_bid[0]==0){
+		return "liar";
+	}
+	else
+		return convert_from_int_to_string_bid(next_bid);
+}
+
 
 function winner(previous_bid, user_dices){
 	var count = 0;
