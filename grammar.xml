@@ -2,14 +2,8 @@
 <!DOCTYPE grammar 
   PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN" "http://www.speech.kth.se/~gabriel/voicexml/grammar.dtd">
 <grammar xmlns="http://www.w3.org/2001/06/grammar" root="START"  xml:lang="en-US" version="1.0">
+  <rule id="START" scope="public"></rule>
 
-  <rule id="START" scope="public">
-    <one-of>
-      <item>yes</item>
-      <item>no</item>
-    </one-of>
-  </rule>
-  
   <rule id="REVEAL" scope="public">
     <ruleref uri="#DICE1"/>
     <ruleref uri="#DICE2"/>
