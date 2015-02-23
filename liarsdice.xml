@@ -6,7 +6,7 @@
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
 		<initial name="welcome">
 			<prompt bargein="false">
-				<emphasis level="strong">Welcome to the liar's dice game. Are you ready?
+				Welcome to the liar's dice game. Are you ready?
 			</prompt>
 			<nomatch count="2">
 				<prompt>
