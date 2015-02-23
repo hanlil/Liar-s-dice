@@ -58,7 +58,7 @@
     </one-of>
   </rule>
   
-  <rule id="COUNT">
+  <rule id="COUNT" scope="public">
     <ruleref uri="#NUMBERS"/>
     <tag>out=rules.NUMBERS;</tag>
   </rule>
@@ -80,27 +80,27 @@
     </one-of>
   </rule>
   
-  <rule id="DICE1">
+  <rule id="DICE1" scope="public">
     <ruleref uri="#FACE"/>
     <tag>out=rules.FACE;</tag>
   </rule>
   
-  <rule id="DICE2">
+  <rule id="DICE2" scope="public">
     <ruleref uri="#FACE"/>
     <tag>out=rules.FACE;</tag>  
   </rule>
   
-  <rule id="DICE3">
+  <rule id="DICE3" scope="public">
     <ruleref uri="#FACE"/>
     <tag>out=rules.FACE;</tag>
   </rule>
   
-  <rule id="DICE4">
+  <rule id="DICE4" scope="public">
     <ruleref uri="#FACE"/>
     <tag>out=rules.FACE;</tag>
   </rule>
   
-  <rule id="DICE5">
+  <rule id="DICE5" scope="public">
     <ruleref uri="#FACE"/>
     <tag>out=rules.FACE;</tag>
   </rule>
