@@ -4,25 +4,27 @@
 <vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-US">
 	<form id="game">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
-		<field name="welcome">
-			<prompt bargein="false">
-				Hello, we are going to play a game of liar's dice. Please roll the dice. Are you ready?
-			</prompt>
-			<nomatch>
-				<assign name="welcome" expr="true"/>
-			</nomatch>
+		<field name="welcome" type="boolean">
+			<prompt bargein="false">Hello, you are going to play a liar's dice game. Please roll the dice, Are you ready?</prompt>
+			<filled mode="all" namelist="welcome">
+				<if cond="welcome">
+					<prompt>
+						Ok, let's start<break/>
+					</prompt>
+				</if>
+			</filled>
 		</field>
-		<filled mode="all" namelist="welcome">
-			<prompt>
-				Ok, let's start<break/>
-			</prompt>
-		</filled>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
 			<nomatch>
-				That is not a bid<break/><reprompt/>
+				This is not a bid<break/><reprompt/>
 			</nomatch>
 		</field>
+		<filled mode="all" namelist="bid">
+			<prompt>
+				Your bid is <value expr="bid"/>
+			</prompt>
+		</filled>
 	</form>
 </vxml>
