@@ -1,55 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE grammar 
   PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN" "http://www.speech.kth.se/~gabriel/voicexml/grammar.dtd">
-<grammar xmlns="http://www.w3.org/2001/06/grammar" root="START"  xml:lang="en-US" version="1.0">
-  <rule id="START" scope="public"></rule>
+<grammar xmlns="http://www.w3.org/2001/06/grammar" root="BID"  xml:lang="en-US" version="1.0">
 
   <rule id="BID" scope="public">
     <one-of>
-      <item>liar<\item>
-      <item>
-        <ruleref uri="#COUNT"/>
-        <ruleref uri="#FACE"/>
-        <tag>out=rules.COUNT+ ' ' + rules.FACE;</tag>
-      </item>
+      <item>one<\item>
+      <item>two</item>
     </one-of>
   </rule>
   
-  <rule id="COUNT">
-    <one-of>
-      <item>one</item>
-      <item>two</item>
-      <item>three</item>
-      <item>four</item>
-      <item>five</item>
-      <item>six</item>
-      <item>seven</item>
-      <item>eight</item>
-      <item>nine</item>
-      <item>ten</item>
-      <item>eleven</item>
-      <item>twelve</item>
-      <item>thirteen</item>
-      <item>fourteen</item>
       <item>fifteen</item>
     </one-of>
   </rule>
   
-  <rule id="FACE">
-    <one-of>
-      <item>one</item>
-      <item>two</item>
-      <item>three</item>
-      <item>four</item>
-      <item>five</item>
-      <item>six</item>
-      <item>ones</item>
-      <item>twos</item>
-      <item>threes</item>
-      <item>fours</item>
-      <item>fives</item>
-      <item>sixes</item>
-    </one-of>
-  </rule>
   
 </grammar>
