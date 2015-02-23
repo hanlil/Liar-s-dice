@@ -62,6 +62,40 @@ function convert_from_string_to_int_reveal(string_reveal){
 	return int_reveal;
 }
 
+function probability_AI1(count,face){
+	var n = 0;
+	var prob = 0;
+	for(var i = 0; i++; i<5){
+		if(face==AI_1_dices[i]){
+			n++;
+		};
+	};
+	new_count = count - n;
+	if(new_count <= 0){
+		prob = 1;
+	}
+	else{
+		prob = probability(new_count,10);
+	};
+}
+
+function probability_AI2(count,face){
+	var n = 0;
+	var prob = 0;
+	for(var i = 0; i++; i<5){
+		if(face==AI_2_dices[i]){
+			n++;
+		};
+	};
+	new_count = count - n;
+	if(new_count <= 0){
+		prob = 1;
+	}
+	else{
+		prob = probability(new_count,10);
+	};
+}
+
 function probability(k,n){
 	proba = 0;
 	for (var i = k; i < n; i++) {
@@ -110,7 +144,6 @@ function AI1(previous_bid){
 }
 
 
-
 function AI2(previous_bid){
 	var threshold = 0.2;
 	var prob = probability_AI2(previous_bid[0]+1,previous_bid[1]);
@@ -137,42 +170,4 @@ function winner(previous_bid, user_dices){
 		return true;
 	}
 	else return false;
-}
-
-function call_bid_AI_1(previous_bid){
-	var n = 0;
-	var prob = 0;
-	for(var i = 0; i++; i<5){
-		if(previous_bid[1]==AI_A_dices[i]){
-			n++;
-		};
-	};
-	new_count = previous_bid[0] - n;
-	if(new_count <= 0){
-		prob = 1;
-	}
-	else{
-		prob = probability(new_count,10);
-	};
-	if(prob>0.5)
-		return 
-}
-
-function call_bid_AI_2(previous_bid){
-	
-}
-
-while(!liar){
-	if (turn=0){
-		result_bid = call_bid();
-		turn = 1;
-	}
-	else if(turn==1){
-		result_bid = call_bid_AI_1(result_bid)
-		turn = 2;
-	}
-	else{
-		result_bid = call_bid_AI_2(result_bid)
-		turn = 0;
-	}
 }
