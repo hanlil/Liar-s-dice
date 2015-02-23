@@ -13,11 +13,9 @@
 			</nomatch>
 
 			<filled mode="all" namelist="welcome">
-				<if cond="welcome">
-					<prompt>
-						Ok, let's start<break/>
-					</prompt>
-				</if>
+				<prompt>
+					Ok, let's start<break/>
+				</prompt>
 			</filled>
 		</field>
 		<field name="bid">
