@@ -12,6 +12,9 @@
 				<assign name="welcome" expr="true"/>
 			</nomatch>
 		</initial>
+		<filled mode="all" namelist="welcome">
+			<prompt>Ok let's start</prompt>
+		</filled>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
