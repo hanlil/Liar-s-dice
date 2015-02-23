@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE vxml 
-  PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.speech.kth.se/~gabriel/voicexml/vxml.dtd">
+ PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.speech.kth.se/~gabriel/voicexml/vxml.dtd">
 <vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-US">
 	<form id="game">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
