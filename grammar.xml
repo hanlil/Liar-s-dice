@@ -11,7 +11,6 @@
     <ruleref uri="#DICE4"/>
     <ruleref uri="#DICE5"/>
     <tag>out=rules.DICE1+' '+rules.DICE2+' '+rules.DICE3+' '+rules.DICE4+' '+rules.DICE5;</tag>
-    </item>
   </rule>
   
   <rule id="BID" scope="public">
