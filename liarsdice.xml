@@ -8,13 +8,8 @@
 			<prompt bargein="false">
 				Hello, you are going to play a liar's dice game. Are you ready?<break/>
 			</prompt>
-			<nomatch count="2">
-				<prompt>
-					Sorry, I don't understand.
-					I will ask for the information one piece at a time.
-				</prompt>
+			<nomatch>
 				<assign name="welcome" expr="true"/>
-				<reprompt/>
 			</nomatch>
 		</initial>
 		<field name="bid">
