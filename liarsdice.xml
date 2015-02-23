@@ -18,7 +18,7 @@
 			</filled>
 		</field>
 		<field name="bid">
-			<grammar src="grammar.xml#BID"/ type="application/grammar-xml">
+			<grammar src="grammar.xml#BID" type="application/grammar-xml"/>
 			<prompt>Make your bid</prompt>
 			<nomatch>
 				That is not a bid<break/><reprompt/>
