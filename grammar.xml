@@ -4,15 +4,6 @@
 <grammar xmlns="http://www.w3.org/2001/06/grammar" root="START"  xml:lang="en-US" version="1.0">
   <rule id="START" scope="public"></rule>
 
-  <rule id="REVEAL" scope="public">
-    <ruleref uri="#DICE1"/>
-    <ruleref uri="#DICE2"/>
-    <ruleref uri="#DICE3"/>
-    <ruleref uri="#DICE4"/>
-    <ruleref uri="#DICE5"/>
-    <tag>out=rules.DICE1+' '+rules.DICE2+' '+rules.DICE3+' '+rules.DICE4+' '+rules.DICE5;</tag>
-  </rule>
-  
   <rule id="BID" scope="public">
     <one-of>
       <item>liar<\item>
@@ -61,29 +52,4 @@
     </one-of>
   </rule>
   
-  <rule id="DICE1" scope="public">
-    <ruleref uri="#FACE"/>
-    <tag>out=rules.FACE;</tag>
-  </rule>
-  
-  <rule id="DICE2" scope="public">
-    <ruleref uri="#FACE"/>
-    <tag>out=rules.FACE;</tag>  
-  </rule>
-  
-  <rule id="DICE3" scope="public">
-    <ruleref uri="#FACE"/>
-    <tag>out=rules.FACE;</tag>
-  </rule>
-  
-  <rule id="DICE4" scope="public">
-    <ruleref uri="#FACE"/>
-    <tag>out=rules.FACE;</tag>
-  </rule>
-  
-  <rule id="DICE5" scope="public">
-    <ruleref uri="#FACE"/>
-    <tag>out=rules.FACE;</tag>
-  </rule>
-
 </grammar>
