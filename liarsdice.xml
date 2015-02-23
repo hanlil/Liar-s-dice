@@ -1,26 +1,22 @@
 <?xml version="1.0"?>
 <!DOCTYPE vxml 
- PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.speech.kth.se/~gabriel/voicexml/vxml.dtd">
+  PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.speech.kth.se/~gabriel/voicexml/vxml.dtd">
 <vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-US">
-	<form id="game">
+	<form id="trip">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
-		<field name="welcome" type="boolean">
-			<prompt bargein="false">Hello, you are going to play a liar's dice game. Please roll the dice, Are you ready?</prompt>
-			<nomatch>
+		<initial name="welcome">
+			<prompt bargein="false">
+				Hello, you are going to play a liar's dice game. Are you ready?<break/>
+			</prompt>
+			<nomatch count="2">
+				<prompt>
+					Sorry, I don't understand.
+					I will ask for the information one piece at a time.
+				</prompt>
 				<assign name="welcome" expr="true"/>
+				<reprompt/>
 			</nomatch>
-			<noinput>
-				<assign name="welcome" expr="true"/>
-			</noinput>
-			
-			<filled mode="all" namelist="welcome">
-				<if cond="welcome">
-					<prompt>
-						Ok, let's start<break/>
-					</prompt>
-				</if>
-			</filled>
-		</field>
+		</initial>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
