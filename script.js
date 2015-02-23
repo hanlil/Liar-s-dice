@@ -179,7 +179,9 @@ function AI2(string_bid){
 }
 
 
-function winner(previous_bid, user_dices){
+function winner(bid_string, user_dices_string){
+	previous_bid = convert_from_string_to_int_bid(bid_string);
+	user_dices = convert_from_string_to_int_reveal(user_dices_string);
 	var count = 0;
 	for(var i = 0; i<5; i++){
 		if(AI_1_dices[i]==previous_bid[1]){
