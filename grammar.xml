@@ -15,10 +15,7 @@
   
   <rule id="BID" scope="public">
     <one-of>
-      <item>
-        <ruleref uri="#LIAR"/>
-        <tag>out=rules.LIAR;</tag>
-      </item>
+      <item>liar<\item>
       <item>
         <ruleref uri="#COUNT"/>
         <ruleref uri="#FACE"/>
@@ -27,11 +24,7 @@
     </one-of>
   </rule>
   
-  <rule id="LIAR">
-    <item>liar</item>
-  </rule>
-  
-  <rule id="NUMBERS">
+  <rule id="COUNT">
     <one-of>
       <item>one</item>
       <item>two</item>
@@ -49,11 +42,6 @@
       <item>fourteen</item>
       <item>fifteen</item>
     </one-of>
-  </rule>
-  
-  <rule id="COUNT" scope="public">
-    <ruleref uri="#NUMBERS"/>
-    <tag>out=rules.NUMBERS;</tag>
   </rule>
   
   <rule id="FACE">
