@@ -48,8 +48,8 @@ function convert_from_int_to_string_bid(int_bid){
 		}
 		else{
 			face+="s";
-		}
-	}
+		};
+	};
 	return count+" "+face;
 }
 
@@ -58,7 +58,7 @@ function convert_from_string_to_int_reveal(string_reveal){
 	var int_reveal = new Array();
 	for (int i=0; i<5; i++){
 		int_reveal[i]=string_to_int[split_reveal[i]];
-	}
+	};
 	return int_reveal;
 }
 
@@ -136,15 +136,15 @@ function AI1_int(previous_bid){
 			if(prob>max_prob){
 				max_face = i;
 				max_prob = prob;
-			}
-		}
-	}
+			};
+		};
+	};
 	if(max_prob >= threshold){
 		return [previous_bid[0],max_face];
 	}
 	else {
 		return [0,0];
-	}
+	};
 }
 
 function AI1(string_bid){
@@ -153,8 +153,9 @@ function AI1(string_bid){
 	if(next_bid[0]==0){
 		return "liar";
 	}
-	else
+	else{
 		return convert_from_int_to_string_bid(next_bid);
+	};
 }
 
 function AI2_int(previous_bid){
@@ -165,7 +166,7 @@ function AI2_int(previous_bid){
 	}
 	else{
 		return [0,0];
-	}
+	};
 }
 
 function AI2(string_bid){
@@ -174,8 +175,9 @@ function AI2(string_bid){
 	if(next_bid[0]==0){
 		return "liar";
 	}
-	else
+	else{
 		return convert_from_int_to_string_bid(next_bid);
+	};
 }
 
 
@@ -186,16 +188,16 @@ function winner(bid_string, user_dices_string){
 	for(var i = 0; i<5; i++){
 		if(AI_1_dices[i]==previous_bid[1]){
 			count++;
-		}
+		};
 		if(AI_2_dices[i]==previous_bid[1]){
 			count++;
-		}
+		};
 		if(user_dices[i]==previous_bid[1]){
 			count++;
-		}
-	}
+		};
+	};
 	if (count >= previous_bid[0]){
 		return true;
 	}
-	else return false;
+	else{ return false;};
 }
