@@ -6,6 +6,13 @@
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
 		<field name="welcome" type="boolean">
 			<prompt bargein="false">Hello, you are going to play a liar's dice game. Please roll the dice, Are you ready?</prompt>
+			<nomatch>
+				<assign name="welcome" expr="true"/>
+			</nomatch>
+			<noinput>
+				<assign name="welcome" expr="true"/>
+			</noinput>
+			
 			<filled mode="all" namelist="welcome">
 				<if cond="welcome">
 					<prompt>
