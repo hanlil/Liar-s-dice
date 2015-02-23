@@ -4,7 +4,10 @@
 <grammar xmlns="http://www.w3.org/2001/06/grammar" root="START"  xml:lang="en-US" version="1.0">
 
   <rule id="START" scope="public">
-    <item>dummy</item>
+    <one-of>
+      <item>yes</item>
+      <item>no</item>
+    </one-of>
   </rule>
   
   <rule id="REVEAL" scope="public">
