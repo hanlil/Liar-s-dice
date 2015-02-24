@@ -58,11 +58,6 @@
 				</if>
 			</filled>
 		</field>
-		<filled mode="all" namelist="reveal">
-			<prompt>
-				Your dice values are <value expr="reveal"/>
-			</prompt>
-		</filled>
 		
 	</form>
 </vxml>
