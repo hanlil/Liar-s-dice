@@ -2,6 +2,7 @@
 <!DOCTYPE vxml 
   PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.speech.kth.se/~gabriel/voicexml/vxml.dtd">
 <vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-US">
+	<script src="script.js"/>
 	<form id="trip">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
 		<field name="welcome" type="boolean">
@@ -23,6 +24,12 @@
 				</if>
 			</filled>
 		</field>
+		<var name="AI_1_dice" expr=roll_dice()/>
+		<var name="AI_2_dice" expr=roll_dice()/>
+		<filled mode="all" namelist="AI_1_dice">
+			<prompt>
+				Dice 1 values are <value expr="AI_1_dice"/><break/>
+		</filled>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
