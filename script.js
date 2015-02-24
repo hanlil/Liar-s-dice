@@ -163,12 +163,26 @@ function AI1(string_bid, AI_1_dices){
 }
 
 function AI2_int(previous_bid, AI_2_dices){
-	var threshold = 0.2;
+	var threshold = 0.4;
 	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_2_dices);
+	var max_prob = 0;
+	var max_face = 0;
 	if(prob >= threshold){
 		return [previous_bid[0]+1,previous_bid[1]];
 	}
 	else{
+		for(var i=previous_bid[1]+1; i<7;i++){
+			prob = probability_global(previous_bid[0],i,AI_2_dices);
+			if(prob>max_prob){
+				max_face = i;
+				max_prob = prob;
+			};
+		};
+	};
+	if(max_prob >= threshold){
+		return [previous_bid[0],max_face];
+	}
+	else {
 		return [0,0];
 	};
 }
