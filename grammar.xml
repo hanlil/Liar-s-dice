@@ -13,8 +13,37 @@
   <rule id="BID" scope="public">
     <one-of>
       <item>liar</item>
+      <item>
+        <ruleref uri="#COUNT"/>
+        <!-- <ruleref uri="#FACE" />
+        <tag>out=rules.COUNT+' '+rules.FACE</tag>
+        -->
+        <tag>out=rules.COUNT</tag>
+      </item>
+      <!--
       <item>one</item>
       <item>two</item>
+      -->
+    </one-of>
+  </rule>
+  
+  <rule id="COUNT">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
+      <item>seven</item>
+      <item>eight</item>
+      <item>nine</item>
+      <item>ten</item>
+      <item>eleve</item>
+      <item>twelve</item>
+      <item>thirteen</item>
+      <item>fourteen</item>
+      <item>fifteen</item>
     </one-of>
   </rule>
   
