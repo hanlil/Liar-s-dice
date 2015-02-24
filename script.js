@@ -1,45 +1,41 @@
-var AI_1_dices = new Array();
-var AI_2_dices = new Array();
-
-var string_to_int = new Array();
-string_to_int["one"]=1;
-string_to_int["ones"]=1;
-string_to_int["two"]=2;
-string_to_int["twos"]=2;
-string_to_int["three"]=3;
-string_to_int["threes"]=3;
-string_to_int["four"]=4;
-string_to_int["fours"]=4;
-string_to_int["five"]=5;
-string_to_int["fives"]=5;
-string_to_int["six"]=6;
-string_to_int["sixes"]=6;
-string_to_int["seven"]=7;
-string_to_int["eight"]=8;
-string_to_int["nine"]=9;
-string_to_int["ten"]=10;
-string_to_int["eleven"]=11;
-string_to_int["twelve"]=12;
-string_to_int["thirteen"]=13;
-string_to_int["fourteen"]=14;
-string_to_int["fifteen"]=15;
-string_to_int["liar"]=0;
-
-var int_to_string = ["liar","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"];
-
 function roll_dices(){
+	dices = new Array();
 	for (var i = 0; i <5; i++) {
-		AI_1_dices[i] = Math.floor((Math.random() * 6) + 1);
-		AI_2_dices[i] = Math.floor((Math.random() * 6) + 1);
+		dices[i] = Math.floor((Math.random() * 6) + 1);
 	};
+	return dices;
 }
 
 function convert_from_string_to_int_bid(string_bid){
+	var string_to_int = new Array();
+	string_to_int["one"]=1;
+	string_to_int["ones"]=1;
+	string_to_int["two"]=2;
+	string_to_int["twos"]=2;
+	string_to_int["three"]=3;
+	string_to_int["threes"]=3;
+	string_to_int["four"]=4;
+	string_to_int["fours"]=4;
+	string_to_int["five"]=5;
+	string_to_int["fives"]=5;
+	string_to_int["six"]=6;
+	string_to_int["sixes"]=6;
+	string_to_int["seven"]=7;
+	string_to_int["eight"]=8;
+	string_to_int["nine"]=9;
+	string_to_int["ten"]=10;
+	string_to_int["eleven"]=11;
+	string_to_int["twelve"]=12;
+	string_to_int["thirteen"]=13;
+	string_to_int["fourteen"]=14;
+	string_to_int["fifteen"]=15;
+	string_to_int["liar"]=0;
 	split_bid = string_bid.split(" ");
 	return [string_to_int[split_bid[0]],string_to_int[split_bid[1]]];
 }
 
 function convert_from_int_to_string_bid(int_bid){
+	var int_to_string = ["liar","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"];
 	var count = int_to_string[int_bid[0]];
 	var face = int_to_string[int_bid[1]];
 	if(int_bid[0]>1){
@@ -54,6 +50,29 @@ function convert_from_int_to_string_bid(int_bid){
 }
 
 function convert_from_string_to_int_reveal(string_reveal){
+	var string_to_int = new Array();
+	string_to_int["one"]=1;
+	string_to_int["ones"]=1;
+	string_to_int["two"]=2;
+	string_to_int["twos"]=2;
+	string_to_int["three"]=3;
+	string_to_int["threes"]=3;
+	string_to_int["four"]=4;
+	string_to_int["fours"]=4;
+	string_to_int["five"]=5;
+	string_to_int["fives"]=5;
+	string_to_int["six"]=6;
+	string_to_int["sixes"]=6;
+	string_to_int["seven"]=7;
+	string_to_int["eight"]=8;
+	string_to_int["nine"]=9;
+	string_to_int["ten"]=10;
+	string_to_int["eleven"]=11;
+	string_to_int["twelve"]=12;
+	string_to_int["thirteen"]=13;
+	string_to_int["fourteen"]=14;
+	string_to_int["fifteen"]=15;
+	string_to_int["liar"]=0;
 	split_reveal = string_reveal.split(" ");
 	var int_reveal = new Array();
 	for (int i=0; i<5; i++){
@@ -62,11 +81,11 @@ function convert_from_string_to_int_reveal(string_reveal){
 	return int_reveal;
 }
 
-function probability_AI1(count,face){
+function probability_global(count,face,dices){
 	var n = 0;
 	var prob = 0;
 	for(var i = 0; i++; i<5){
-		if(face==AI_1_dices[i]){
+		if(face==dices[i]){
 			n++;
 		};
 	};
@@ -79,22 +98,6 @@ function probability_AI1(count,face){
 	};
 }
 
-function probability_AI2(count,face){
-	var n = 0;
-	var prob = 0;
-	for(var i = 0; i++; i<5){
-		if(face==AI_2_dices[i]){
-			n++;
-		};
-	};
-	new_count = count - n;
-	if(new_count <= 0){
-		prob = 1;
-	}
-	else{
-		prob = probability(new_count,10);
-	};
-}
 
 function probability(k,n){
 	proba = 0;
@@ -122,9 +125,9 @@ function binomial(k,n){
 
 
 
-function AI1_int(previous_bid){
+function AI1_int(previous_bid, AI_1_dices){
 	var threshold = 0.3;
-	var prob = probability_AI1(previous_bid[0]+1,previous_bid[1]);
+	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_1_dices);
 	var max_prob = 0;
 	var max_face = 0;
 	if(prob >= threshold){
@@ -132,7 +135,7 @@ function AI1_int(previous_bid){
 	}
 	else{
 		for(var i=previous_bid[1]+1; i<7;i++){
-			prob = probability_AI1(previous_bid[0],i);
+			prob = probability_global(previous_bid[0],i,AI_1_dices);
 			if(prob>max_prob){
 				max_face = i;
 				max_prob = prob;
@@ -147,9 +150,9 @@ function AI1_int(previous_bid){
 	};
 }
 
-function AI1(string_bid){
+function AI1(string_bid, AI_1_dices){
 	var previous_bid = convert_from_string_to_int_bid(string_bid);
-	next_bid = AI1_int(previous_bid);
+	next_bid = AI1_int(previous_bid, AI_1_dices);
 	if(next_bid[0]==0){
 		return "liar";
 	}
@@ -158,9 +161,9 @@ function AI1(string_bid){
 	};
 }
 
-function AI2_int(previous_bid){
+function AI2_int(previous_bid, AI_2_dices){
 	var threshold = 0.2;
-	var prob = probability_AI2(previous_bid[0]+1,previous_bid[1]);
+	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_2_dices);
 	if(prob >= threshold){
 		return [previous_bid[0]+1,previous_bid[1]];
 	}
@@ -169,9 +172,9 @@ function AI2_int(previous_bid){
 	};
 }
 
-function AI2(string_bid){
+function AI2(string_bid, AI_2_dices){
 	var previous_bid = convert_from_string_to_int_bid(string_bid);
-	next_bid = AI2_int(previous_bid);
+	next_bid = AI2_int(previous_bid, AI_2_dices);
 	if(next_bid[0]==0){
 		return "liar";
 	}
@@ -181,7 +184,7 @@ function AI2(string_bid){
 }
 
 
-function winner(bid_string, user_dices_string){
+function winner(bid_string, user_dices_string, AI_1_dices, AI_2_dices){
 	previous_bid = convert_from_string_to_int_bid(bid_string);
 	user_dices = convert_from_string_to_int_reveal(user_dices_string);
 	var count = 0;
