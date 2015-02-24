@@ -2,19 +2,18 @@
 <!DOCTYPE vxml 
   PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.speech.kth.se/~gabriel/voicexml/vxml.dtd">
 <vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-US">
-	<form id="trip">
+	<form id="game">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
-		<initial name="welcome">
-			<prompt bargein="false">
-				We are going to play a liar's dice game. Roll your dices. Are you ready?
-			</prompt>
-			<nomatch>
-				<assign name="welcome" expr="true"/>
-			</nomatch>
-			<noinput>
-				<assign name="welcome" expr="true"/>
-			</noinput>
-		</initial>
+		<field name="welcome" type="boolean">
+			<prompt bargein="false">Hello, you are going to play a liar's dice game. Please roll the dice, Are you ready?</prompt>
+			<filled mode="all" namelist="welcome">
+				<if cond="welcome">
+					<prompt>
+						Ok, let's start<break/>
+					</prompt>
+				</if>
+			</filled>
+		</field>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
@@ -27,6 +26,5 @@
 				Your bid is <value expr="bid"/>
 			</prompt>
 		</filled>
-		
 	</form>
 </vxml>
