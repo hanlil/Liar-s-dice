@@ -9,14 +9,14 @@ function roll_dices(){
 
 function AI1(string_bid, AI_1_dices){
 	var rand = Math.floor((Math.random() * 2));
-	var array_returnerd = ["liar","not a liar"];
+	var array_returned = ["liar","not a liar"];
 	return array_returned[rand];
 }
 
 
 function AI2(string_bid, AI_2_dices){
 	var rand = Math.floor((Math.random() * 2));
-	var array_returnerd = ["liar","not a liar"];
+	var array_returned = ["liar","not a liar"];
 	return array_returned[rand];
 }
 
