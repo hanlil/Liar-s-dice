@@ -84,7 +84,7 @@ function convert_from_string_to_int_reveal(string_reveal){
 function probability_global(count,face,dices){
 	var n = 0;
 	var prob = 0;
-	for(var i = 0; i++; i<5){
+	for(var i = 0; i<5; i++){
 		if(face==dices[i]){
 			n++;
 		};
@@ -96,7 +96,7 @@ function probability_global(count,face,dices){
 	else{
 		prob = probability(new_count,10);
 	};
-	return prob;
+        return prob;
 }
 
 
@@ -112,16 +112,16 @@ function binomial(k,n){
 	var n_factorial = 1;
 	var k_factorial = 1;
 	var nminusk_factorial = 1;
-	for (var i = 1; i < n; i++) {
+	for (var i = 1; i <= n; i++) {
 		n_factorial = n_factorial*i;
 	};
-	for (var i = 1; i < k; i++) {
+	for (var i = 1; i <= k; i++) {
 		k_factorial = k_factorial*i;
 	};
-	for (var i = 1; i < n-k; i++) {
+	for (var i = 1; i <= n-k; i++) {
 		nminusk_factorial = nminusk_factorial*i;
 	};
-	return n_factorial/(k_factorial*nminusk_factorial)*(1/6)^k*(1/6)^(n-k);
+	return n_factorial/(k_factorial*nminusk_factorial)*Math.pow(1.0/6,k)*Math.pow(1.0/6,n-k);
 }
 
 
@@ -129,6 +129,8 @@ function binomial(k,n){
 function AI1_int(previous_bid, AI_1_dices){
 	var threshold = 0.3;
 	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_1_dices);
+        document.write(prob);
+        document.write(" ");
 	var max_prob = 0;
 	var max_face = 0;
 	if(prob >= threshold){
