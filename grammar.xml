@@ -4,9 +4,24 @@
 <grammar xmlns="http://www.w3.org/2001/06/grammar" root="START"  xml:lang="en-US" version="1.0">
 
   <rule id="START" scope="public">
+    <item repeat="0-1">
+      <ruleref uri="#FILLER"/>
+    </item>
     <one-of>
       <item>yes</item>
       <item>no</item>
+    </one-of>
+  </rule>
+
+  <rule id="FILLER">
+    <one-of>
+      <item>I want</item>
+      <item>I would like</item>
+    </one-of>
+    <one-of>
+      <item>to go</item>
+      <item>to book a ticket</item>
+      <item>to travel</item>
     </one-of>
   </rule>
 
@@ -15,18 +30,92 @@
       <item>liar</item>
       <item>one</item>
       <item>two</item>
-      <!--
-      <item>
-        <ruleref uri="#COUNT"/>
-        <ruleref uri="#FACE"/>
-        <tag>out=rules.COUNT+ ' ' + rules.FACE</item>
-      </item>
-      -->
     </one-of>
   </rule>
 
-<!--
-  <rule id="COUNT">
+  <rule id="DESTINATION" scope="public">
+      <item repeat="0-1">
+        <item>to</item>
+      </item>
+      <ruleref uri="#CITY"/>
+      <tag>out=rules.CITY;</tag>
+  </rule>
+  
+  <rule id="CITY">
+    <one-of>
+      <item>london</item>
+      <item>paris</item>
+      <item>stockholm</item>
+      <item>madrid</item>
+      <item>berlin</item>
+    </one-of>
+  </rule>
+
+  <rule id="DATE" scope="public">
+      <one-of>
+        <item>
+            <item repeat="0-1">
+                <one-of>
+                  <item>on the</item>
+                  <item>the</item>
+                </one-of>
+            </item>
+            <ruleref uri="#DATE_1_31"/>
+            <item>of</item>
+            <ruleref uri="#MONTH"/>
+            <tag>out=rules.MONTH + ' ' + rules.DATE_1_31</tag>
+        </item>
+        <item>
+            <item repeat="0-1">
+                <item>on</item>
+            </item>
+            <ruleref uri="#MONTH"/>
+            <ruleref uri="#DATE_1_31"/>
+            <tag>out=rules.MONTH + ' ' + rules.DATE_1_31</tag>
+        </item>
+        <item>
+          <item>On christmas</item>
+          <tag>december the twentyfourth</tag>
+        </item>
+      </one-of>
+  </rule>
+
+  <rule id="TIME" scope="public">
+    <one-of>
+      <item>
+        <item>at</item>
+        <item><ruleref uri="#HOURS_1_12"/></item>
+        <item>o'clock</item>
+      </item>
+      <item>
+        <one-of>
+          <item>quarter past</item>
+          <item>quarter to</item>
+          <item>half past</item>
+        </one-of>
+        <item><ruleref uri="#HOURS_1_12"/></item>
+      </item>
+    </one-of>
+  </rule>
+
+  <rule id="MONTH">
+      <one-of>
+          <item>january</item>
+          <item>february</item>
+          <item>march</item>
+          <item>april</item>
+          <item>may</item>
+          <item>june</item>
+          <item>july</item>
+          <item>august</item>
+          <item>september</item>
+          <item>october</item>
+          <item>november</item>
+          <item>december</item>
+      </one-of>
+  </rule>
+
+  <rule id="HOURS_1_12">
       <one-of>
           <item>one</item>
           <item>two</item>
@@ -40,29 +129,50 @@
           <item>ten</item>
           <item>eleven</item>
           <item>twelve</item>
-          <item>thirteen</item>
-          <item>fourteen</item>
-          <item>fifteen</item>
       </one-of>
   </rule>
 
-
-  <rule id="FACE">
+  <rule id="DATE_1_31">
       <one-of>
-          <item>one</item>
-          <item>two</item>
-          <item>three</item>
-          <item>four</item>
-          <item>five</item>
-          <item>six</item>
-          <item>ones</item>
-          <item>twos</item>
-          <item>threes</item>
-          <item>fours</item>
-          <item>fives</item>
-          <item>sixes</item>
+          <item><ruleref uri="#DATE_1_9"/></item>
+          <item><ruleref uri="#DATE_10_19"/></item>
+          <item>
+              <item>twenty</item>
+              <ruleref uri="#DATE_1_9"/>
+              <tag>out = 'twenty ' + rules.DATE_1_9</tag>
+          </item>
+          <item>thirtieth</item>
+          <item>thirty first</item>
       </one-of>
   </rule>
--->
+
+  <rule id="DATE_1_9">
+      <one-of>
+          <item>first</item>
+          <item>second</item>
+          <item>third</item>
+          <item>fourth</item>
+          <item>fifth</item>
+          <item>sixth</item>
+          <item>seventh</item>
+          <item>eighth</item>
+          <item>ninth</item>
+      </one-of>
+  </rule>
+
+  <rule id="DATE_10_19">
+      <one-of>
+          <item>tenth</item>
+          <item>eleventh</item>
+          <item>twelfth</item>
+          <item>thirteenth</item>
+          <item>fourteenth</item>
+          <item>fifteenth</item>
+          <item>sixteenth</item>
+          <item>seventeenth</item>
+          <item>eighteenth</item>
+          <item>nineteenth</item>
+      </one-of>
+  </rule>
 
 </grammar>
