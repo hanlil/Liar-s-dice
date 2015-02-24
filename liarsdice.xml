@@ -24,11 +24,12 @@
 				</if>
 			</filled>
 		</field>
-		<var name="AI_1_dice" expr=roll_dice()/>
-		<var name="AI_2_dice" expr=roll_dice()/>
+		<var name="AI_1_dice" expr="roll_dice()"/>
+		<var name="AI_2_dice" expr="roll_dice()"/>
 		<filled mode="all" namelist="AI_1_dice">
 			<prompt>
 				Dice 1 values are <value expr="AI_1_dice"/><break/>
+			</prompt>
 		</filled>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
