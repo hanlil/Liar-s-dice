@@ -43,24 +43,24 @@
 				<assign name="AI_1_bid" expr="AI1(bid,AI_1_dice)"/>
 				<if cond="AI_1_bid != 'liar'">
 					<prompt>
-						A I 1's bid is <break/> <value expr="AI_1_bid"/> <break/>
+						<break/>Player 2 is bidding <break/> <value expr="AI_1_bid"/> <break/>
 					</prompt>
 					<assign name="AI_2_bid" expr="AI2(AI_1_bid,AI_2_dice)"/>
 					<if cond="AI_2_bid != 'liar'">
 						<prompt>
-							A I 2's bid is <break/> <value expr="AI_2_bid"/> <break/>
+							<break/>Player 3 is bidding <break/> <value expr="AI_2_bid"/> <break/>
 						</prompt>
 						<clear namelist="bid"/>
 					<else/>
 						<prompt>
-							A I 2's called A I 1's a liar <break/>.
+							Player 3 called Player 2 a liar <break/>.
 							The game is over, we are going to establish the winner <break/>
 						</prompt>
 					</if>
 					
 				<else/>
 					<prompt>
-						A I 1's called you a liar <break/>
+						Player 2 called you a liar <break/>
 						The game is over, we are going to establish the winner <break/>
 					</prompt>
 				</if>
