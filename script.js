@@ -163,7 +163,7 @@ function AI1(string_bid, AI_1_dices){
 }
 
 function AI2_int(previous_bid, AI_2_dices){
-	var threshold = 0.4;
+	var threshold = 0.2;
 	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_2_dices);
 	var max_prob = 0;
 	var max_face = 0;
