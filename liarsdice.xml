@@ -36,5 +36,18 @@
 			</prompt>
 		</filled>
 		
+		<field name="reveal">
+			<grammar src="grammar.xml#REVEAL"/>
+			<prompt>Reveal all your dice/prompt>
+			<nomatch>
+				Start again<break/><reprompt/>
+			</nomatch>
+		</field>
+		<filled mode="all" namelist="reveal">
+			<prompt>
+				Your dice values are <value expr="reveal"/>
+			</prompt>
+		</filled>
+		
 	</form>
 </vxml>
