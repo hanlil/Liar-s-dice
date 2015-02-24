@@ -15,10 +15,8 @@
       <item>liar</item>
       <item>
         <ruleref uri="#COUNT"/>
-        <!-- <ruleref uri="#FACE" />
+        <ruleref uri="#FACE" />
         <tag>out=rules.COUNT+' '+rules.FACE</tag>
-        -->
-        <tag>out=rules.COUNT</tag>
       </item>
       <!--
       <item>one</item>
@@ -44,6 +42,23 @@
       <item>thirteen</item>
       <item>fourteen</item>
       <item>fifteen</item>
+    </one-of>
+  </rule>
+
+  <rule id="FACE">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
+      <item>ones</item>
+      <item>twos</item>
+      <item>threes</item>
+      <item>fours</item>
+      <item>fives</item>
+      <item>sixes</item>
     </one-of>
   </rule>
   
