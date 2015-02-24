@@ -6,21 +6,6 @@ function roll_dices(){
 	return dices;
 }
 
-function AI1(string_bid, AI_1_dices){
-	var rand = Math.floor((Math.random() * 2));
-	var array_returned = ["liar","not a liar"];
-	return array_returned[rand];
-}
-
-
-function AI2(string_bid, AI_2_dices){
-	var rand = Math.floor((Math.random() * 2));
-	var array_returned = ["liar","not a liar"];
-	return array_returned[rand];
-}
-
-
-/*
 function convert_from_string_to_int_bid(string_bid){
 	var string_to_int = new Array();
 	string_to_int["one"]=1;
@@ -198,7 +183,7 @@ function AI2(string_bid, AI_2_dices){
 	};
 }
 
-
+/*
 function winner(bid_string, user_dices_string, AI_1_dices, AI_2_dices){
 	previous_bid = convert_from_string_to_int_bid(bid_string);
 	user_dices = convert_from_string_to_int_reveal(user_dices_string);
@@ -219,4 +204,5 @@ function winner(bid_string, user_dices_string, AI_1_dices, AI_2_dices){
 	}
 	else{ return false;};
 }
+
 */
