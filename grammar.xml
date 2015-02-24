@@ -14,9 +14,9 @@
     <one-of>
       <item>liar</item>
       <item>
-        <rulered uri="#COUNT"/>
-        <rulered uri="#FACE"/>
-        <tag>out=rules.COUNT+ ' ' + rules.FACE;</item>
+        <ruleref uri="#COUNT"/>
+        <ruleref uri="#FACE"/>
+        <tag>out=rules.COUNT+ ' ' + rules.FACE</item>
       </item>
     </one-of>
   </rule>
