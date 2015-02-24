@@ -41,11 +41,13 @@
 			</prompt>
 			<if cond="bid != 'liar'">
 				<assign name="AI_1_bid" expr="AI1(bid,AI_1_dice)"/>
+				<prompt><break/><break/></prompt>
 				<if cond="AI_1_bid != 'liar'">
 					<prompt>
 						<break/>Player 2 is bidding <break/> <value expr="AI_1_bid"/> <break/>
 					</prompt>
 					<assign name="AI_2_bid" expr="AI2(AI_1_bid,AI_2_dice)"/>
+					<prompt><break/><break/></prompt>
 					<if cond="AI_2_bid != 'liar'">
 						<prompt>
 							<break/>Player 3 is bidding <break/> <value expr="AI_2_bid"/> <break/>
