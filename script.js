@@ -126,7 +126,7 @@ function binomial(k,n){
 
 
 function AI1_int(previous_bid, AI_1_dices){
-	var threshold = 0.3;
+	var threshold = 0.1;
 	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_1_dices);
 	var max_prob = 0;
 	var max_face = 0;
@@ -162,7 +162,7 @@ function AI1(string_bid, AI_1_dices){
 }
 
 function AI2_int(previous_bid, AI_2_dices){
-	var threshold = 0.2;
+	var threshold = 0.05;
 	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_2_dices);
 	if(prob >= threshold){
 		return [previous_bid[0]+1,previous_bid[1]];
