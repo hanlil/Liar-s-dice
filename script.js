@@ -96,6 +96,7 @@ function probability_global(count,face,dices){
 	else{
 		prob = probability(new_count,10);
 	};
+	return prob;
 }
 
 
