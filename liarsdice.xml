@@ -41,6 +41,7 @@
 		<var name="AI_1_bid"/>
 		<var name="AI_2_bid"/>
 		<script>
+		<![CDATA[
 			<if cond="bid != 'liar'">
 				<assign name="AI_1_bid" expr="AI1(bid,AI_1_dice)"/>
 				<if cond="AI_1_bid != 'liar'">
@@ -65,7 +66,7 @@
 					</prompt>
 				</if>
 			</if>
-
+  		]]>
 		</script>
 		<field name="reveal">
 			<grammar src="grammar.xml#REVEAL"/>
