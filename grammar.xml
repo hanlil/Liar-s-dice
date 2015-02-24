@@ -13,15 +13,19 @@
   <rule id="BID" scope="public">
     <one-of>
       <item>liar</item>
+      <item>one</item>
+      <item>two</item>
+      <!--
       <item>
         <ruleref uri="#COUNT"/>
         <ruleref uri="#FACE"/>
         <tag>out=rules.COUNT+ ' ' + rules.FACE</item>
       </item>
+      -->
     </one-of>
   </rule>
 
-
+<!--
   <rule id="COUNT">
       <one-of>
           <item>one</item>
@@ -59,6 +63,6 @@
           <item>sixes</item>
       </one-of>
   </rule>
-
+-->
 
 </grammar>
