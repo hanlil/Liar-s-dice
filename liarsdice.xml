@@ -43,6 +43,21 @@
 				Start again<break/><reprompt/>
 			</nomatch>
 		</field>
+		<field name="check" type="boolean">
+			<prompt><value expr="reveal"/>, Do you confirm?</prompt>
+			<filled mode="all" namelist="check">
+				<if cond="check">
+					<prompt>
+						Alright
+					</prompt>
+				<else/>
+					<promt>
+						Ok, let's try again
+					</promt>
+					<clear namelist="reveal check"/>
+				</if>
+			</filled>
+		</field>
 		<filled mode="all" namelist="reveal">
 			<prompt>
 				Your dice values are <value expr="reveal"/>
