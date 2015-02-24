@@ -5,7 +5,7 @@ function roll_dices(){
 	};
 	return dices;
 }
-/*
+
 function AI1(string_bid, AI_1_dices){
 	var rand = Math.floor((Math.random() * 2));
 	var array_returned = ["liar","not a liar"];
@@ -18,7 +18,7 @@ function AI2(string_bid, AI_2_dices){
 	var array_returned = ["liar","not a liar"];
 	return array_returned[rand];
 }
-*/
+
 
 /*
 function convert_from_string_to_int_bid(string_bid){
