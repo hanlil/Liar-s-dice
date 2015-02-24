@@ -18,11 +18,16 @@
         <ruleref uri="#FACE" />
         <tag>out=rules.COUNT+' '+rules.FACE</tag>
       </item>
-      <!--
-      <item>one</item>
-      <item>two</item>
-      -->
     </one-of>
+  </rule>
+  
+  <rule id="REVEAL" scope="public">
+    <ruleref uri="#DICE1"/>
+    <ruleref uri="#DICE2"/>
+    <ruleref uri="#DICE3"/>
+    <ruleref uri="#DICE4"/>
+    <ruleref uri="#DICE5"/>
+    <tag>out=rules.DICE1+' '+rules.DICE2+' '+rules.DICE3+' '+rules.DICE4+' '+rules.DICE5</tag>
   </rule>
   
   <rule id="COUNT">
@@ -59,6 +64,57 @@
       <item>fours</item>
       <item>fives</item>
       <item>sixes</item>
+    </one-of>
+  </rule>
+  
+  <rule id="DICE1">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
+    </one-of>
+  </rule>
+  <rule id="DICE2">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
+    </one-of>
+  </rule>
+  <rule id="DICE3">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
+    </one-of>
+  </rule>
+  <rule id="DICE4">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
+    </one-of>
+  </rule>
+  <rule id="DICE5">
+    <one-of>
+      <item>one</item>
+      <item>two</item>
+      <item>three</item>
+      <item>four</item>
+      <item>five</item>
+      <item>six</item>
     </one-of>
   </rule>
   
