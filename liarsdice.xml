@@ -24,46 +24,11 @@
 				This is not a bid<break/><reprompt/>
 			</nomatch>
 		</field>
-		<field name="destination">
-			<grammar src="grammar.xml#DESTINATION"/>
-			<prompt>Where do you want to go to?</prompt>
-		</field>
-		<field name="date">
-			<grammar src="grammar.xml#DATE"/>
-			<prompt>Which date do you want to go?</prompt>
-			<nomatch count="1">
-				Sorry, that is not a real date<break/><reprompt/>
-			</nomatch>
-			<nomatch count="2">
-				Don't be silly<break/><reprompt/>
-			</nomatch>			
-		</field>
-		<field name="time">
-			<grammar src="grammar.xml#TIME"/>
-			<prompt>At what time do you want to go?</prompt>
-			<noinput>
-				Please don't ignore me<reprompt/>
-			</noinput>
-		</field>
-		<filled mode="all" namelist="origin destination date time">
+		<filled mode="all" namelist="bid">
 			<prompt>
-				You have now booked a trip from <value expr="origin"/> to <value expr="destination"/>, <value expr="date"/>, <value expr="time"/>.
+				Your bid is <value expr="bid"\>
 			</prompt>
 		</filled>
-		<field name="confirm" type="boolean">
-			<prompt>Is that correct?</prompt>
-				<filled mode="all" namelist="origin destination date time confirm">
-					<if cond="confirm">
-						<prompt>
-							Thank you for your reservation
-						</prompt>
-						<exit/>
-					</if>
-						<prompt>
-							Okey, lets try again
-						</prompt>
-						<clear/>
-				</filled>
-		</field>
+		
 	</form>
 </vxml>
