@@ -8,14 +8,12 @@
 			<prompt bargein="false">
 				We are going to play a liar's dice game. Roll your dices. Are you ready?
 			</prompt>
-			<nomatch count="2">
-				<prompt>
-					Sorry, I don't understand.
-					I will ask for the information one piece at a time.
-				</prompt>
+			<nomatch>
 				<assign name="welcome" expr="true"/>
-				<reprompt/>
 			</nomatch>
+			<noinput>
+				<assign name="welcome" expr="true"/>
+			</noinput>
 		</initial>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
