@@ -41,7 +41,6 @@
 			</prompt>
 			<if cond="bid != 'liar'">
 				<assign name="AI_1_bid" expr="AI1(bid,AI_1_dice)"/>
-	<!--
 				<prompt><break/><break/></prompt>
 				<if cond="AI_1_bid != 'liar'">
 					<prompt>
@@ -67,7 +66,6 @@
 						The game is over, we are going to establish the winner <break/>
 					</prompt>
 				</if>
-				-->
 			</if>
 		</filled>
 		<field name="reveal">
