@@ -40,6 +40,7 @@
 		</filled>
 		<var name="AI_1_bid"/>
 		<var name="AI_2_bid"/>
+		<block>
 		<script>
 		<![CDATA[
 			<if cond="bid != 'liar'">
@@ -68,6 +69,7 @@
 			</if>
   		]]>
 		</script>
+		</block>
 		<field name="reveal">
 			<grammar src="grammar.xml#REVEAL"/>
 			<prompt><break/>Reveal all your dice</prompt>
