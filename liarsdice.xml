@@ -6,7 +6,7 @@
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
 		<initial name="welcome">
 			<prompt bargein="false">
-				<emphasis level="strong">Hello</emphasis>, and welcome to the travel booking system. You can now make your reservation.
+				We are going to play a liar's dice game. Roll your dices. Are you ready?
 			</prompt>
 			<nomatch count="2">
 				<prompt>
@@ -17,11 +17,11 @@
 				<reprompt/>
 			</nomatch>
 		</initial>
-		<field name="origin">
-			<grammar src="grammar.xml#ORIGIN"/>
-			<prompt>From where do you want to go?</prompt>
+		<field name="bid">
+			<grammar src="grammar.xml#BID"/>
+			<prompt>Make your bid</prompt>
 			<nomatch>
-				Please name a different city<break/><reprompt/>
+				This is not a bid<break/><reprompt/>
 			</nomatch>
 		</field>
 		<field name="destination">
