@@ -2,7 +2,7 @@ function roll_dices(){
 	dices = new Array();
 	for (var i = 0; i <5; i++) {
 		dices[i] = Math.floor((Math.random() * 6) + 1);
-	};
+	}
 	return dices;
 }
 
@@ -44,8 +44,8 @@ function convert_from_int_to_string_bid(int_bid){
 		}
 		else{
 			face+="s";
-		};
-	};
+		}
+	}
 	return count+" "+face;
 }
 
@@ -75,7 +75,7 @@ function convert_from_string_to_int_reveal(string_reveal){
 	string_to_int["liar"]=0;
 	split_reveal = string_reveal.split(" ");
 	var int_reveal = new Array();
-	for (int i=0; i<5; i++){
+	for (var i=0; i<5; i++){
 		int_reveal[i]=string_to_int[split_reveal[i]];
 	};
 	return int_reveal;
@@ -183,7 +183,7 @@ function AI2(string_bid, AI_2_dices){
 	};
 }
 
-/*
+
 function winner(bid_string, user_dices_string, AI_1_dices, AI_2_dices){
 	previous_bid = convert_from_string_to_int_bid(bid_string);
 	user_dices = convert_from_string_to_int_reveal(user_dices_string);
@@ -204,5 +204,3 @@ function winner(bid_string, user_dices_string, AI_1_dices, AI_2_dices){
 	}
 	else{ return false;};
 }
-
-*/
