@@ -24,7 +24,7 @@
 				</if>
 			</filled>
 		</field>
-		<var name="AI_1_dice" expr="roll_dice()"/>
+		<var name="AI_1_dice" expr="roll_dices()"/>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
