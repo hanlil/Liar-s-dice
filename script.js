@@ -105,7 +105,7 @@ function probability(k,n){
 	for (var i = k; i < n; i++) {
 		proba += binomial(i,n);
 	};
-	return proba
+	return proba;
 }
 
 function binomial(k,n){
