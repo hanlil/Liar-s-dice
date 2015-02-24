@@ -129,8 +129,6 @@ function binomial(k,n){
 function AI1_int(previous_bid, AI_1_dices){
 	var threshold = 0.3;
 	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_1_dices);
-        document.write(prob);
-        document.write(" ");
 	var max_prob = 0;
 	var max_face = 0;
 	if(prob >= threshold){
@@ -155,7 +153,7 @@ function AI1_int(previous_bid, AI_1_dices){
 
 function AI1(string_bid, AI_1_dices){
 	var previous_bid = convert_from_string_to_int_bid(string_bid);
-	next_bid = AI1_int(previous_bid, AI_1_dices);
+	var next_bid = AI1_int(previous_bid, AI_1_dices);
 	if(next_bid[0]==0){
 		return "liar";
 	}
