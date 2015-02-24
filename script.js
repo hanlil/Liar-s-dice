@@ -5,7 +5,7 @@ function roll_dices(){
 	};
 	return dices;
 }
-
+/*
 function convert_from_string_to_int_bid(string_bid){
 	var string_to_int = new Array();
 	string_to_int["one"]=1;
@@ -204,3 +204,4 @@ function winner(bid_string, user_dices_string, AI_1_dices, AI_2_dices){
 	}
 	else{ return false;};
 }
+*/
