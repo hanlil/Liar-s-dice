@@ -38,7 +38,7 @@
 		
 		<field name="reveal">
 			<grammar src="grammar.xml#REVEAL"/>
-			<prompt>Reveal all your dice/prompt>
+			<prompt>Reveal all your dice</prompt>
 			<nomatch>
 				Start again<break/><reprompt/>
 			</nomatch>
