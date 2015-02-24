@@ -25,6 +25,7 @@
 			</filled>
 		</field>
 		<var name="AI_1_dice" expr="roll_dices()"/>
+		<var name="AI_2_dice" expr="roll_dices()"/>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
@@ -34,10 +35,38 @@
 		</field>
 		<filled mode="all" namelist="bid">
 			<prompt>
-				Your bid is <value expr="bid"/> and player 1 dice values are <value expr="AI_1_dice"/>
+				Your bid is <value expr="bid"/> 
 			</prompt>
 		</filled>
-		
+		<var name="AI_1_bid"/>
+		<var name="AI_2_bid"/>
+		<script>
+			<if cond="bid != 'liar'">
+				<assign name="AI_1_bid" expr="AI1(bid,AI_1_dice)"/>
+				<if cond="AI_1_bid != 'liar'">
+					<prompt>
+						A I 1's bid is <break/> <value expr="AI_1_bid"/> <break/>
+					</prompt>
+					<assign name="AI_2_bid" expr="AI2(AI_1_bid,AI_2_dice)"/>
+					<if cond="AI_2_bid != 'liar'">
+						<prompt>
+							A I 2's bid is <break/> <value expr="AI_2_bid"/> <break/>
+						</prompt>
+						<clear namelist="bid"/>
+					<else/>
+						<prompt>
+							A I 2's called A I 1's a liar <break/>
+						</prompt>
+					</if>
+					
+				<else/>
+					<prompt>
+						A I 2's called A I 1's a liar <break/>
+					</prompt>
+				</if>
+			</if>
+
+		</script>
 		<field name="reveal">
 			<grammar src="grammar.xml#REVEAL"/>
 			<prompt><break/>Reveal all your dice</prompt>
