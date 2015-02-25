@@ -70,7 +70,7 @@
 			<grammar src="grammar.xml#REVEAL"/>
 			<prompt>
 				Now we will reveal the dice. Player 2 will begin <break/>
-				<value expr="AI_1_dices"/>
+				<value expr="AI_1_dice"/>
 				<break/>Now, it is your turn to reveal all your dice
 			</prompt>
 			<nomatch>
@@ -95,9 +95,7 @@
 		<filled mode="all" namelist="check reveal">
 			<prompt>
 				And Player 3 go ahead.
-			</prompt>
-			<prompt>
-				<value expr="AI_2_dices"/>
+				<value expr="AI_2_dice"/>
 			</prompt>
 		</filled>
 	</form>
