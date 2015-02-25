@@ -75,6 +75,10 @@
 					</prompt>
 				</if>
 			<else/>
+				<prompt>
+					You called Player 3 a liar <break/>
+					The game is over, we are going to establish the winner <break/>
+				</prompt>
 				<assign name="last_bidder" expr="'Player 3'"/>
 				<assign name="lie_caller" expr="'You'"/>
 			</if>
