@@ -66,15 +66,13 @@
 				</if>
 			</if>
 		</filled>
-		<prompt>
-			Now we will reveal the dice. Player 2 will begin.
-		</prompt>
-		<prompt>
-			<value expr="AI_1_dices"/>
-		</prompt>
 		<field name="reveal">
 			<grammar src="grammar.xml#REVEAL"/>
-			<prompt><break/>Now, it is your turn to reveal all your dice</prompt>
+			<prompt>
+				Now we will reveal the dice. Player 2 will begin <break/>
+				<value expr="AI_1_dices"/>
+				<break/>Now, it is your turn to reveal all your dice
+			</prompt>
 			<nomatch>
 				Start again<break/><reprompt/>
 			</nomatch>
@@ -94,11 +92,13 @@
 				</if>
 			</filled>
 		</field>
-		<prompt>
-			And Player 3 go ahead.
-		</prompt>
-		<prompt>
-			<value expr="AI_2_dices"/>
-		</prompt>
+		<filled mode="all" namelist="check reveal">
+			<prompt>
+				And Player 3 go ahead.
+			</prompt>
+			<prompt>
+				<value expr="AI_2_dices"/>
+			</prompt>
+		</filled>
 	</form>
 </vxml>
