@@ -1,3 +1,7 @@
+function copy(string){
+	return string;
+}
+
 function roll_dices(){
 	dices = new Array();
 	for (var i = 0; i <5; i++) {
