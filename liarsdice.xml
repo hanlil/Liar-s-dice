@@ -36,6 +36,8 @@
 		<var name="AI_1_bid"/>
 		<var name="AI_2_bid"/>
 		<var name="current_bid"/>
+		<var name="last_bidder"/>
+		<var name="lie_caller"/>
 		<filled mode="all" namelist="bid">
 			<assign name="current_bid" expr="copy(bid)" />
 			<prompt>
@@ -56,6 +58,8 @@
 						</prompt>
 						<clear namelist="bid"/>
 					<else/>
+						<assign name="last_bidder" expr="'Player 2'"/>
+						<assign name="lie_caller" expr="'Player 3'"/>
 						<prompt>
 							Player 3 called Player 2 a liar <break/>.
 							The game is over, we are going to establish the winner <break/>
@@ -63,11 +67,16 @@
 					</if>
 					
 				<else/>
+					<assign name="last_bidder" expr="'You'"/>
+					<assign name="lie_caller" expr="'Player 2'"/>
 					<prompt>
 						Player 2 called you a liar <break/>
 						The game is over, we are going to establish the winner <break/>
 					</prompt>
 				</if>
+			<else/>
+				<assign name="last_bidder" expr="'Player 3'"/>
+				<assign name="lie_caller" expr="'You'"/>
 			</if>
 		</filled>
 		<field name="reveal">
@@ -103,9 +112,18 @@
 			</prompt>
 			<var name="winner" expr="winner(current_bid,reveal,AI_1_dice,AI_2_dice)"/>
 			<if cond="winner">
-				<prompt>The bid was true</prompt>
+				<prompt>
+					The bid was true
+					<value expr="last_bidder"/> wins
+					<value expr="lie_caller"/> loses
+				</prompt>
 			<else/>
-				<prompt>The bid was false</prompt>
+				<prompt>
+					The bid was false
+					<value expr="lie_caller"/> wins
+					<value expr="last_bidder"/> loses
+						
+				</prompt>
 			</if>
 		</filled>
 	</form>
