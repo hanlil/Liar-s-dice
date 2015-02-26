@@ -118,7 +118,7 @@
 			<filled mode="all" namelist="check">
 				<if cond="check">
 					<prompt>
-						Alright
+						Alright <break/>
 					</prompt>
 				<else/>
 					<promt>
