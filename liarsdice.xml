@@ -53,14 +53,14 @@
 					<assign name="AI_2_bid" expr="AI2(AI_1_bid,AI_2_dice)"/>
 					<assign name="current_bid" expr="copy(AI_2_bid)" />
 					<if cond="AI_2_bid != 'liar'">
-						<prompt>
+						<prompt bargein="false">
 							<break/>Player 3 is bidding <break/> <value expr="AI_2_bid"/> <break/>
 						</prompt>
 						<clear namelist="bid"/>
 					<else/>
 						<assign name="last_bidder" expr="'Player 2'"/>
 						<assign name="lie_caller" expr="'Player 3'"/>
-						<prompt>
+						<prompt bargein="false">
 							Player 3 called Player 2 a liar <break/>.
 							The game is over, we are going to establish the winner <break/>
 						</prompt>
@@ -116,13 +116,13 @@
 			</prompt>
 			<var name="winner" expr="winner(current_bid,reveal,AI_1_dice,AI_2_dice)"/>
 			<if cond="winner">
-				<prompt>
+				<prompt bargein="false">
 					The bid was true
 					<value expr="last_bidder"/> wins
 					<value expr="lie_caller"/> loses
 				</prompt>
 			<else/>
-				<prompt>
+				<prompt bargein="false">
 					The bid was false
 					<value expr="lie_caller"/> wins
 					<value expr="last_bidder"/> loses
