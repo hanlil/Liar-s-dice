@@ -21,6 +21,8 @@ function roll_dices(){
 
 function convert_from_string_to_int_bid(string_bid){
 	var string_to_int = new Array();
+	string_to_int["zero"]=0;
+	string_to_int["zeros"]=0;
 	string_to_int["one"]=1;
 	string_to_int["ones"]=1;
 	string_to_int["two"]=2;
