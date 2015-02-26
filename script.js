@@ -144,19 +144,20 @@ function binomial(k,n){
 
 function AI1_int(previous_bid, AI_1_dices){
 	var threshold = 0.3;
-	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_1_dices);
+	var prob = 0;
+	if(previous_bid[0]!=15){
+		prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_1_dices);
+		if(prob >= threshold){
+			return [previous_bid[0]+1,previous_bid[1]];
+		};
+	};
 	var max_prob = 0;
 	var max_face = 0;
-	if(prob >= threshold){
-		return [previous_bid[0]+1,previous_bid[1]];
-	}
-	else{
-		for(var i=previous_bid[1]+1; i<7;i++){
-			prob = probability_global(previous_bid[0],i,AI_1_dices);
-			if(prob>max_prob){
-				max_face = i;
-				max_prob = prob;
-			};
+	for(var i=previous_bid[1]+1; i<7;i++){
+		prob = probability_global(previous_bid[0],i,AI_1_dices);
+		if(prob>max_prob){
+			max_face = i;
+			max_prob = prob;
 		};
 	};
 	if(max_prob >= threshold){
