@@ -52,7 +52,9 @@
 						<if cond="AI_1_bid != 'liar'">
 							<prompt>
 								<break/>Player 2 is bidding <break/>
+								<voice gender="male">
 								<p xml:lang="en-gb"><value expr="AI_1_bid"/> <break/></p>
+								</voice>
 							</prompt>
 							<assign name="AI_2_bid" expr="AI2(AI_1_bid,AI_2_dice)"/>
 							<assign name="current_bid" expr="copy(AI_2_bid)" />
@@ -108,7 +110,7 @@
 			<grammar src="grammar.xml#REVEAL"/>
 			<prompt>
 				Now we will reveal the dice. Player 2 will begin <break/>
-				<p xml:lang="en-gb"><value expr="AI_1_dice"/></p>
+				<voice gender="male"><p xml:lang="en-gb"><value expr="AI_1_dice"/></p></voice>
 				<break/>Now, it is your turn to reveal all your dice
 			</prompt>
 			<nomatch>
