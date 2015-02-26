@@ -38,50 +38,60 @@
 		<var name="current_bid" expr="'zero zero'"/>
 		<var name="last_bidder"/>
 		<var name="lie_caller"/>
+		<var name="max_bid_reached"/>
 		<filled mode="all" namelist="bid">
 			<if cond="is_bid_correct(current_bid,bid)">
 				<assign name="current_bid" expr="copy(bid)" />
-				<if cond="bid != 'liar'">
-					<prompt>
-						Your bid is <value expr="bid"/>
-					</prompt>
-					<assign name="AI_1_bid" expr="AI1(bid,AI_1_dice)"/>
-					<assign name="current_bid" expr="copy(AI_1_bid)"/>
-					<if cond="AI_1_bid != 'liar'">
+				<if cond="current_bid!='fifteen sixes' && current_bid!='fifteen six'">
+					<if cond="bid != 'liar'">
 						<prompt>
-							<break/>Player 2 is bidding <break/> <value expr="AI_1_bid"/> <break/>
+							Your bid is <value expr="bid"/>
 						</prompt>
-						<assign name="AI_2_bid" expr="AI2(AI_1_bid,AI_2_dice)"/>
-						<assign name="current_bid" expr="copy(AI_2_bid)" />
-						<if cond="AI_2_bid != 'liar'">
-							<prompt bargein="false">
-								<break/>Player 3 is bidding <break/> <value expr="AI_2_bid"/> <break/>
+						<assign name="AI_1_bid" expr="AI1(bid,AI_1_dice)"/>
+						<assign name="current_bid" expr="copy(AI_1_bid)"/>
+						<if cond="AI_1_bid != 'liar'">
+							<prompt>
+								<break/>Player 2 is bidding <break/> <value expr="AI_1_bid"/> <break/>
 							</prompt>
-							<clear namelist="bid"/>
+							<assign name="AI_2_bid" expr="AI2(AI_1_bid,AI_2_dice)"/>
+							<assign name="current_bid" expr="copy(AI_2_bid)" />
+							<if cond="AI_2_bid != 'liar'">
+								<prompt bargein="false">
+									<break/>Player 3 is bidding <break/> <value expr="AI_2_bid"/> <break/>
+								</prompt>
+								<clear namelist="bid"/>
+							<else/>
+								<assign name="last_bidder" expr="'Player 2'"/>
+								<assign name="lie_caller" expr="'Player 3'"/>
+								<prompt bargein="false">
+									Player 3 called Player 2 a liar <break/>.
+									The game is over, we are going to establish the winner <break/>
+								</prompt>
+							</if>
+							
 						<else/>
-							<assign name="last_bidder" expr="'Player 2'"/>
-							<assign name="lie_caller" expr="'Player 3'"/>
-							<prompt bargein="false">
-								Player 3 called Player 2 a liar <break/>.
+							<assign name="last_bidder" expr="'You'"/>
+							<assign name="lie_caller" expr="'Player 2'"/>
+							<prompt>
+								Player 2 called you a liar <break/>
 								The game is over, we are going to establish the winner <break/>
 							</prompt>
 						</if>
-						
 					<else/>
-						<assign name="last_bidder" expr="'You'"/>
-						<assign name="lie_caller" expr="'Player 2'"/>
 						<prompt>
-							Player 2 called you a liar <break/>
+							You called Player 3 a liar <break/>
 							The game is over, we are going to establish the winner <break/>
 						</prompt>
+						<assign name="last_bidder" expr="'Player 3'"/>
+						<assign name="lie_caller" expr="'You'"/>
 					</if>
 				<else/>
+					<assign name="max_bid_reached" expr="true"/>
+					<assign name="last_bidder" expr="'You'"/>
 					<prompt>
-						You called Player 3 a liar <break/>
+						You reached the maximum bid
 						The game is over, we are going to establish the winner <break/>
 					</prompt>
-					<assign name="last_bidder" expr="'Player 3'"/>
-					<assign name="lie_caller" expr="'You'"/>
 				</if>
 			<else/>
 				<prompt>
@@ -124,19 +134,32 @@
 				<value expr="AI_2_dice"/>
 			</prompt>
 			<var name="winner" expr="winner(current_bid,reveal,AI_1_dice,AI_2_dice)"/>
-			<if cond="winner">
-				<prompt bargein="false">
-					The bid was true
-					<value expr="last_bidder"/> wins
-					<value expr="lie_caller"/> loses
-				</prompt>
+			<if cond="!max_bid_reached">
+				<if cond="winner">
+					<prompt bargein="false">
+						The bid was true
+						<value expr="last_bidder"/> wins
+						<value expr="lie_caller"/> loses
+					</prompt>
+				<else/>
+					<prompt bargein="false">
+						The bid was false
+						<value expr="lie_caller"/> wins
+						<value expr="last_bidder"/> loses
+					</prompt>
+				</if>
 			<else/>
-				<prompt bargein="false">
-					The bid was false
-					<value expr="lie_caller"/> wins
-					<value expr="last_bidder"/> loses
-						
-				</prompt>
+				<if cond="winner">
+					<prompt bargein="false">
+						The bid was true
+						<value expr="last_bidder"/> wins
+					</prompt>
+				<else/>
+					<prompt bargein="false">
+						The bid was false
+						<value expr="last_bidder"/> loses
+					</prompt>
+				</if>
 			</if>
 		</filled>
 	</form>
