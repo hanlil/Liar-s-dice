@@ -100,6 +100,7 @@ function probability_global(count,face,dices){
 	else{
 		prob = probability(new_count,10);
 	};
+
         return prob;
 }
 
@@ -125,7 +126,7 @@ function binomial(k,n){
 	for (var i = 1; i <= n-k; i++) {
 		nminusk_factorial = nminusk_factorial*i;
 	};
-	return n_factorial/(k_factorial*nminusk_factorial)*Math.pow(1.0/6,k)*Math.pow(1.0/6,n-k);
+	return n_factorial/(k_factorial*nminusk_factorial)*Math.pow(1.0/6,k)*Math.pow(5.0/6,n-k);
 }
 
 
