@@ -2,7 +2,6 @@
 <!DOCTYPE vxml 
   PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.speech.kth.se/~gabriel/voicexml/vxml.dtd">
 <vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-GB">
-	<voice  gender="male">
 	<script src="script.js"/>
 	<form id="trip">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
@@ -173,5 +172,4 @@
 			</if>
 		</filled>
 	</form>
-	</voice>
 </vxml>
