@@ -87,7 +87,7 @@
 				<prompt>
 					Your bid is incorrect.
 					The previous bid was <value expr="current_bid"/>
-					Please make a new bid
+					Please make a new bid <break/>
 				</prompt>
 				<clear namelist="bid"/>
 			</if>
