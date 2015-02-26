@@ -61,14 +61,19 @@
 							<if cond="AI_2_bid != 'liar'">
 								<prompt bargein="false">
 									<break/>Player 3 is bidding <break/>
-    									<voice age="6"><value expr="AI_2_bid"/> <break/></voice>
+									<voice gender="male">
+									<voice age="6"><value expr="AI_2_bid"/> <break/></voice>
+									</voice>
 								</prompt>
 								<clear namelist="bid"/>
 							<else/>
 								<assign name="last_bidder" expr="'Player 2'"/>
 								<assign name="lie_caller" expr="'Player 3'"/>
 								<prompt bargein="false">
-									<voice age="6">Player 2 is a liar</voice> <break/>.
+									<voice gender="male">
+									<voice age="6">Player 2 is a liar</voice>
+									</voice>
+									<break/>.
 									The game is over, we are going to establish the winner <break/>
 								</prompt>
 							</if>
@@ -77,7 +82,7 @@
 							<assign name="last_bidder" expr="'You'"/>
 							<assign name="lie_caller" expr="'Player 2'"/>
 							<prompt>
-								<p xml:lang="en-gb">You are a liar <break/></p>
+								<p xml:lang="en-gb"><break/>You are a liar <break/></p>
 								The game is over, we are going to establish the winner <break/>
 							</prompt>
 						</if>
@@ -135,7 +140,7 @@
 		<filled mode="all" namelist="check reveal">
 			<prompt>
 				And Player 3 go ahead.
-				<voice age="6"><value expr="AI_2_dice"/></voice>
+				<voice gender="male"><voice age="6"><value expr="AI_2_dice"/></voice></voice>
 			</prompt>
 			<var name="winner" expr="winner(current_bid,reveal,AI_1_dice,AI_2_dice)"/>
 			<if cond="!max_bid_reached">
