@@ -71,7 +71,7 @@
 								<assign name="lie_caller" expr="'Player 3'"/>
 								<prompt bargein="false">
 									<voice gender="male">
-									<voice age="6">Player 2 is a liar</voice>
+									<voice age="6">I think that Player 2 is a liar</voice>
 									</voice>
 									<break/>.
 									The game is over, we are going to establish the winner <break/>
@@ -82,7 +82,7 @@
 							<assign name="last_bidder" expr="'You'"/>
 							<assign name="lie_caller" expr="'Player 2'"/>
 							<prompt>
-								<voice gender="male"><break/>You are a liar <break/></voice>
+								<voice gender="male"><break/>I think that you are a liar <break/></voice>
 								The game is over, we are going to establish the winner <break/>
 							</prompt>
 						</if>
