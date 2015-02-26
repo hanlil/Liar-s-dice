@@ -51,20 +51,22 @@
 						<assign name="current_bid" expr="copy(AI_1_bid)"/>
 						<if cond="AI_1_bid != 'liar'">
 							<prompt>
-								<break/>Player 2 is bidding <break/> <value expr="AI_1_bid"/> <break/>
+								<break/>Player 2 is bidding <break/>
+								<p xml:lang="en-gb"><value expr="AI_1_bid"/> <break/></p>
 							</prompt>
 							<assign name="AI_2_bid" expr="AI2(AI_1_bid,AI_2_dice)"/>
 							<assign name="current_bid" expr="copy(AI_2_bid)" />
 							<if cond="AI_2_bid != 'liar'">
 								<prompt bargein="false">
-									<break/>Player 3 is bidding <break/> <value expr="AI_2_bid"/> <break/>
+									<break/>Player 3 is bidding <break/>
+    									<voice age="6"><value expr="AI_2_bid"/> <break/></voice>
 								</prompt>
 								<clear namelist="bid"/>
 							<else/>
 								<assign name="last_bidder" expr="'Player 2'"/>
 								<assign name="lie_caller" expr="'Player 3'"/>
 								<prompt bargein="false">
-									Player 3 called Player 2 a liar <break/>.
+									<voice age="6">Player 2 is a liar</voice> <break/>.
 									The game is over, we are going to establish the winner <break/>
 								</prompt>
 							</if>
@@ -73,7 +75,7 @@
 							<assign name="last_bidder" expr="'You'"/>
 							<assign name="lie_caller" expr="'Player 2'"/>
 							<prompt>
-								Player 2 called you a liar <break/>
+								<p xml:lang="en-gb">You are a liar <break/></p>
 								The game is over, we are going to establish the winner <break/>
 							</prompt>
 						</if>
@@ -106,7 +108,7 @@
 			<grammar src="grammar.xml#REVEAL"/>
 			<prompt>
 				Now we will reveal the dice. Player 2 will begin <break/>
-				<value expr="AI_1_dice"/>
+				<p xml:lang="en-gb"><value expr="AI_1_dice"/></p>
 				<break/>Now, it is your turn to reveal all your dice
 			</prompt>
 			<nomatch>
@@ -131,7 +133,7 @@
 		<filled mode="all" namelist="check reveal">
 			<prompt>
 				And Player 3 go ahead.
-				<value expr="AI_2_dice"/>
+				<voice age="6"><value expr="AI_2_dice"/></voice>
 			</prompt>
 			<var name="winner" expr="winner(current_bid,reveal,AI_1_dice,AI_2_dice)"/>
 			<if cond="!max_bid_reached">
