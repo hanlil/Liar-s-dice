@@ -2,6 +2,15 @@ function copy(string){
 	return string;
 }
 
+function is_bid_correct(previous_string_bid, string_bid){
+	var bid = convert_from_string_to_int_bid(string_bid);
+	var previous_bid = convert_from_string_to_int_bid(previous_string_bid);
+	if((bid[0]>previous_bid[0] && bid[1]>=previous_bid[1]) || (bid[0]>=previous_bid[0] && bid[1]>previous_bid[1])){
+		return true;
+	}
+	else return false;
+}
+
 function roll_dices(){
 	dices = new Array();
 	for (var i = 0; i <5; i++) {
