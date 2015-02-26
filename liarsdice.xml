@@ -123,7 +123,7 @@
 			</nomatch>
 		</field>
 		<field name="check" type="boolean">
-			<prompt><value expr="reveal"/>, Do you confirm?</prompt>
+			<prompt><value expr="reveal"/>, Is that correct?</prompt>
 			<filled mode="all" namelist="check">
 				<if cond="check">
 					<prompt>
