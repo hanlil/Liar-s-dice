@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE vxml 
   PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.speech.kth.se/~gabriel/voicexml/vxml.dtd">
-<vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-US">
+<vxml xmlns="http://www.w3.org/2001/vxml" version="2.1" xml:lang="en-GB" gender="male">
 	<script src="script.js"/>
 	<form id="trip">
 		<grammar src="grammar.xml#START" type="application/grammar-xml" maxage="0"/>
@@ -52,8 +52,8 @@
 						<if cond="AI_1_bid != 'liar'">
 							<prompt>
 								<break/>Player 2 is bidding <break/>
-								<voice gender="male">
-								<p xml:lang="en-gb"><value expr="AI_1_bid"/> <break/></p>
+								<voice gender="female">
+								<value expr="AI_1_bid"/> <break/>
 								</voice>
 							</prompt>
 							<assign name="AI_2_bid" expr="AI2(AI_1_bid,AI_2_dice)"/>
@@ -61,7 +61,7 @@
 							<if cond="AI_2_bid != 'liar'">
 								<prompt bargein="false">
 									<break/>Player 3 is bidding <break/>
-									<voice gender="male">
+									<voice gender="female">
 									<voice age="6"><value expr="AI_2_bid"/> <break/></voice>
 									</voice>
 								</prompt>
@@ -70,7 +70,7 @@
 								<assign name="last_bidder" expr="'Player 2'"/>
 								<assign name="lie_caller" expr="'Player 3'"/>
 								<prompt bargein="false">
-									<voice gender="male">
+									<voice gender="female">
 									<voice age="6">Player 2 is a liar</voice>
 									</voice>
 									<break/>.
@@ -82,7 +82,7 @@
 							<assign name="last_bidder" expr="'You'"/>
 							<assign name="lie_caller" expr="'Player 2'"/>
 							<prompt>
-								<p xml:lang="en-gb"><break/>You are a liar <break/></p>
+								<voice gender="female"><break/>You are a liar <break/></voice>
 								The game is over, we are going to establish the winner <break/>
 							</prompt>
 						</if>
@@ -115,7 +115,7 @@
 			<grammar src="grammar.xml#REVEAL"/>
 			<prompt>
 				Now we will reveal the dice. Player 2 will begin <break/>
-				<voice gender="male"><p xml:lang="en-gb"><value expr="AI_1_dice"/></p></voice>
+				<voice gender="female"><value expr="AI_1_dice"/></voice>
 				<break/>Now, it is your turn to reveal all your dice
 			</prompt>
 			<nomatch>
@@ -140,7 +140,7 @@
 		<filled mode="all" namelist="check reveal">
 			<prompt>
 				And Player 3 go ahead.
-				<voice gender="male"><voice age="6"><value expr="AI_2_dice"/></voice></voice>
+				<voice gender="female"><voice age="6"><value expr="AI_2_dice"/></voice></voice>
 			</prompt>
 			<var name="winner" expr="winner(current_bid,reveal,AI_1_dice,AI_2_dice)"/>
 			<if cond="!max_bid_reached">
