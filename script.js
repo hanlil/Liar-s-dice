@@ -249,7 +249,7 @@ function AI2(string_bid, AI_2_dices,bool_pause){
 			return "liar";
 		}
 		else{
-			return convert_from_int_to_string_bid(next_bid)+"n";
+			return "n"+convert_from_int_to_string_bid(next_bid);
 		};
 	}
 	else{
@@ -260,10 +260,10 @@ function AI2(string_bid, AI_2_dices,bool_pause){
 		}
 		else{
 			if(next_bid[2]){
-				return convert_from_int_to_string_bid_pause(next_bid)+"p";
+				return "p"+convert_from_int_to_string_bid_pause(next_bid);
 			}
 			else{
-				return convert_from_int_to_string_bid_pause(next_bid)+"n";
+				return "n"+convert_from_int_to_string_bid_pause(next_bid);
 			}
 		};
 	}
