@@ -69,7 +69,7 @@ function convert_from_int_to_string_bid_pause(int_bid){
 			face+="s";
 		}
 	}
-	return count+" "+face+" "+string_pause;
+	return string_pause+" "+count+" "+face+" ";
 }
 
 
