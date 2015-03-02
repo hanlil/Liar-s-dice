@@ -168,27 +168,38 @@ function binomial(k,n){
 
 function AI1_int(previous_bid, AI_1_dices){
 	var threshold = 0.3;
-	var prob = 0;
-	if(previous_bid[0]!=15){
-		prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_1_dices);
-		if(prob >= threshold){
-			return [previous_bid[0]+1,previous_bid[1]];
-		};
-	};
+	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_1_dices);
 	var max_prob = 0;
 	var max_face = 0;
-	for(var i=previous_bid[1]+1; i<7;i++){
-		prob = probability_global(previous_bid[0],i,AI_1_dices);
-		if(prob>max_prob){
-			max_face = i;
-			max_prob = prob;
+	var pause = 0;
+	var prob_higher = probability_global(previous_bid[0]+2,previous_bid[1],AI_1_dices);
+	if(prob_higher == 1){
+		pause = 1;
+	}
+	if(prob != 1){
+		pause = 1;
+	}
+	if(prob >= threshold){
+		return [previous_bid[0]+1,previous_bid[1],pause];
+	}
+	else{
+		pause = 0;
+		for(var i=previous_bid[1]+1; i<7;i++){
+			prob = probability_global(previous_bid[0],i,AI_1_dices);
+			if(prob>max_prob){
+				max_face = i;
+				max_prob = prob;
+			};
 		};
 	};
+	if(max_prob != 1){
+		pause = 1;
+	}
 	if(max_prob >= threshold){
-		return [previous_bid[0],max_face];
+		return [previous_bid[0],max_face,pause];
 	}
 	else {
-		return [0,0];
+		return [0,0,pause];
 	};
 }
 
@@ -224,10 +235,14 @@ function AI2_int(previous_bid, AI_2_dices){
 	if(prob_higher == 1){
 		pause = 1;
 	}
+	if(prob != 1){
+		pause = 1;
+	}
 	if(prob >= threshold){
 		return [previous_bid[0]+1,previous_bid[1],pause];
 	}
 	else{
+		pause = 0;
 		for(var i=previous_bid[1]+1; i<7;i++){
 			prob = probability_global(previous_bid[0],i,AI_2_dices);
 			if(prob>max_prob){
