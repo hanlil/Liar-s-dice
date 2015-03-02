@@ -171,32 +171,32 @@
 		<filled mode="all" namelist="check reveal">
 			<prompt>
 				And Player 3 go ahead.
-				<voice gender="male"><voice age="6"><value expr="AI_2_dice"/></voice></voice>
+				<voice gender="male"><voice age="6"><value expr="AI_2_dice"/></voice></voice> <break/>
 			</prompt>
 			<var name="winner" expr="winner(current_bid,reveal,AI_1_dice,AI_2_dice)"/>
 			<if cond="!max_bid_reached">
 				<if cond="winner">
 					<prompt bargein="false">
-						The bid was true
-						The winner is <value expr="last_bidder"/>
+						The bid was true <break/>
+						The winner is <value expr="last_bidder"/> <break/>
 						The loser is <value expr="lie_caller"/>
 					</prompt>
 				<else/>
 					<prompt bargein="false">
-						The bid was false
-						The winner is <value expr="lie_caller"/>
+						The bid was false <break/>
+						The winner is <value expr="lie_caller"/> <break/>
 						The loser is <value expr="last_bidder"/>
 					</prompt>
 				</if>
 			<else/>
 				<if cond="winner">
 					<prompt bargein="false">
-						The bid was true
+						The bid was true <break/>
 						The winner is <value expr="last_bidder"/>
 					</prompt>
 				<else/>
 					<prompt bargein="false">
-						The bid was false
+						The bid was false <break/>
 						The loser is <value expr="last_bidder"/>
 					</prompt>
 				</if>
