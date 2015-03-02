@@ -52,6 +52,27 @@ function convert_from_string_to_int_bid(string_bid){
 	return [string_to_int[split_bid[0]],string_to_int[split_bid[1]]];
 }
 
+function convert_from_int_to_string_bid_pause(int_bid){
+	var int_to_string = ["liar","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"];
+	var count = int_to_string[int_bid[0]];
+	var face = int_to_string[int_bid[1]];
+	var pause = int_bid[2];
+	var string_pause = "";
+	if(pause!=0){
+		string_pause = " </break> </break>";
+	}
+	if(int_bid[0]>1){
+		if(int_bid[1]==6){
+			face+="es";
+		}
+		else{
+			face+="s";
+		}
+	}
+	return count+" "+face+" "+string_pause;
+}
+
+
 function convert_from_int_to_string_bid(int_bid){
 	var int_to_string = ["liar","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"];
 	var count = int_to_string[int_bid[0]];
@@ -171,24 +192,40 @@ function AI1_int(previous_bid, AI_1_dices){
 	};
 }
 
-function AI1(string_bid, AI_1_dices){
-	var previous_bid = convert_from_string_to_int_bid(string_bid);
-	var next_bid = AI1_int(previous_bid, AI_1_dices);
-	if(next_bid[0]==0){
-		return "liar";
+function AI1(string_bid, AI_1_dices,bool_pause){
+	if(!bool_pause){
+		var previous_bid = convert_from_string_to_int_bid(string_bid);
+		next_bid = AI1_int(previous_bid, AI_1_dices);
+		if(next_bid[0]==0){
+			return "liar";
+		}
+		else{
+			return convert_from_int_to_string_bid(next_bid);
+		};
 	}
 	else{
-		return convert_from_int_to_string_bid(next_bid);
-	};
+		var previous_bid = convert_from_string_to_int_bid(string_bid);
+		next_bid = AI1_int(previous_bid, AI_1_dices);
+		if(next_bid[0]==0){
+			return "liar";
+		}
+		else{
+			return convert_from_int_to_string_bid_pause(next_bid);
+		};
+	}
 }
-
 function AI2_int(previous_bid, AI_2_dices){
 	var threshold = 0.2;
 	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_2_dices);
 	var max_prob = 0;
 	var max_face = 0;
+	var pause = 0;
+	var prob_higher = probability_global(previous_bid[0]+2,previous_bid[1],AI_2_dices);
+	if(prob_higher == 1){
+		pause = 1;
+	}
 	if(prob >= threshold){
-		return [previous_bid[0]+1,previous_bid[1]];
+		return [previous_bid[0]+1,previous_bid[1],pause];
 	}
 	else{
 		for(var i=previous_bid[1]+1; i<7;i++){
@@ -199,23 +236,38 @@ function AI2_int(previous_bid, AI_2_dices){
 			};
 		};
 	};
+	if(max_prob != 1){
+		pause = 1;
+	}
 	if(max_prob >= threshold){
-		return [previous_bid[0],max_face];
+		return [previous_bid[0],max_face,pause];
 	}
 	else {
-		return [0,0];
+		return [0,0,pause];
 	};
 }
 
-function AI2(string_bid, AI_2_dices){
-	var previous_bid = convert_from_string_to_int_bid(string_bid);
-	next_bid = AI2_int(previous_bid, AI_2_dices);
-	if(next_bid[0]==0){
-		return "liar";
+function AI2(string_bid, AI_2_dices,bool_pause){
+	if(!bool_pause){
+		var previous_bid = convert_from_string_to_int_bid(string_bid);
+		next_bid = AI2_int(previous_bid, AI_2_dices);
+		if(next_bid[0]==0){
+			return "liar";
+		}
+		else{
+			return convert_from_int_to_string_bid(next_bid);
+		};
 	}
 	else{
-		return convert_from_int_to_string_bid(next_bid);
-	};
+		var previous_bid = convert_from_string_to_int_bid(string_bid);
+		next_bid = AI2_int(previous_bid, AI_2_dices);
+		if(next_bid[0]==0){
+			return "liar";
+		}
+		else{
+			return convert_from_int_to_string_bid_pause(next_bid);
+		};
+	}
 }
 
 
