@@ -71,7 +71,6 @@
 									</voice>
 								</prompt>
 							</if>
-							</prompt>
 							<assign name="AI_2_bid" expr="AI1(AI_1_bid,AI_2_dice,pause)"/>
 							<assign name="insert_break" expr="AI_2_bid.substring(0,1)"/>
 							<assign name="AI_2_bid" expr="AI_2_bid.substring(1)"/>
@@ -89,12 +88,12 @@
 										</prompt>
 									<else/>
 										<prompt>
-										<voice age="6"><value expr="AI_2_bid"/> <break/></voice>
+										<voice gender="male">
+										<voice age="6"><value expr="AI_2_bid"/> <break/>
+										</voice>
+										</voice>
 										</prompt>
 									</if>
-									
-									</voice>
-								</prompt>
 								<clear namelist="bid"/>
 							<else/>
 								<assign name="last_bidder" expr="'Player 2'"/>
