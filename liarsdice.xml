@@ -38,7 +38,7 @@
 		<var name="AI_2_bid"/>
 		<var name="AI_1_array"/>
 		<var name="AI_2_array"/>
-		<var name="insert_break"/ expr="false"/>
+		<var name="insert_break" expr="false"/>
 		<var name="current_bid" expr="'zero zero'"/>
 		<var name="last_bidder"/>
 		<var name="lie_caller"/>
