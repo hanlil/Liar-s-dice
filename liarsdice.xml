@@ -56,13 +56,21 @@
 						<if cond="AI_1_bid != 'liar'">
 							<prompt>
 								<break/>Player 2 is bidding <break/>
-								<voice gender="male">
-								<if cond="insert_break=='p'">
-								<break time="2000"/>
-								<value expr="AI_1_bid"/> <break/>
-								<else/> <value expr="AI_1_bid"/>
-								</if>
-								</voice>
+							</prompt>
+							<if cond="insert_break=='p'">
+								<prompt>
+									<voice gender="male">
+									<break time="2000"/>
+									<value expr="AI_1_bid"/> <break/>
+									</voice>
+								</prompt>
+							<else/> 
+								<prompt>
+									<voice gender="male">
+									<value expr="AI_1_bid"/>
+									</voice>
+								</prompt>
+							</if>
 							</prompt>
 							<assign name="AI_2_bid" expr="AI1(AI_1_bid,AI_2_dice,pause)"/>
 							<assign name="insert_break" expr="AI_2_bid.substring(0,1)"/>
@@ -71,11 +79,18 @@
 							<if cond="AI_2_bid != 'liar'">
 								<prompt bargein="false">
 									<break/>Player 3 is bidding <break/>
-									<voice gender="male">
+								</prompt>
 									<if cond="insert_break=='p'">
-										<break time="2000"/> <voice age="6"><value expr="AI_2_bid"/> <break/></voice>
+										<prompt>
+										<voice gender="male">
+										<break time="2000"/> <voice age="6"><value expr="AI_2_bid"/> <break/>
+										</voice>	
+										</voice>
+										</prompt>
 									<else/>
+										<prompt>
 										<voice age="6"><value expr="AI_2_bid"/> <break/></voice>
+										</prompt>
 									</if>
 									
 									</voice>
