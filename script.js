@@ -52,27 +52,6 @@ function convert_from_string_to_int_bid(string_bid){
 	return [string_to_int[split_bid[0]],string_to_int[split_bid[1]]];
 }
 
-function convert_from_int_to_string_bid_pause(int_bid){
-	var int_to_string = ["liar","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"];
-	var count = int_to_string[int_bid[0]];
-	var face = int_to_string[int_bid[1]];
-	var pause = int_bid[2];
-	var string_pause = "";
-	if(pause!=0){
-		string_pause = "<break/> <break/>";
-	}
-	if(int_bid[0]>1){
-		if(int_bid[1]==6){
-			face+="es";
-		}
-		else{
-			face+="s";
-		}
-	}
-	return string_pause+" "+count+" "+face+" ";
-}
-
-
 function convert_from_int_to_string_bid(int_bid){
 	var int_to_string = ["liar","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"];
 	var count = int_to_string[int_bid[0]];
@@ -230,19 +209,19 @@ function AI2_int(previous_bid, AI_2_dices){
 	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_2_dices);
 	var max_prob = 0;
 	var max_face = 0;
-	var pause = 0;
+	var pause = false;
 	var prob_higher = probability_global(previous_bid[0]+2,previous_bid[1],AI_2_dices);
 	if(prob_higher == 1){
-		pause = 1;
+		pause = true;
 	}
 	if(prob != 1){
-		pause = 1;
+		pause = true;
 	}
 	if(prob >= threshold){
 		return [previous_bid[0]+1,previous_bid[1],pause];
 	}
 	else{
-		pause = 0;
+		pause = false;
 		for(var i=previous_bid[1]+1; i<7;i++){
 			prob = probability_global(previous_bid[0],i,AI_2_dices);
 			if(prob>max_prob){
@@ -252,7 +231,7 @@ function AI2_int(previous_bid, AI_2_dices){
 		};
 	};
 	if(max_prob != 1){
-		pause = 1;
+		pause = true;
 	}
 	if(max_prob >= threshold){
 		return [previous_bid[0],max_face,pause];
@@ -270,7 +249,7 @@ function AI2(string_bid, AI_2_dices,bool_pause){
 			return "liar";
 		}
 		else{
-			return convert_from_int_to_string_bid(next_bid);
+			return [false,convert_from_int_to_string_bid(next_bid)];
 		};
 	}
 	else{
@@ -280,7 +259,7 @@ function AI2(string_bid, AI_2_dices,bool_pause){
 			return "liar";
 		}
 		else{
-			return convert_from_int_to_string_bid_pause(next_bid);
+			return [next_bid[2],convert_from_int_to_string_bid_pause(next_bid)];
 		};
 	}
 }
