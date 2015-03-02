@@ -58,12 +58,13 @@
 								<break/>Player 2 is bidding <break/>
 								<voice gender="male">
 								<if cond="insert_break=='p'">
-								<break/> <break/>
-								</if>
+								<break time="2000"/>
 								<value expr="AI_1_bid"/> <break/>
+								<else/> <value expr="AI_1_bid"/>
+								</if>
 								</voice>
 							</prompt>
-							<assign name="AI_2_bid" expr="AI1(bid,AI_2_dice,pause)"/>
+							<assign name="AI_2_bid" expr="AI1(AI_1_bid,AI_2_dice,pause)"/>
 							<assign name="insert_break" expr="AI_2_bid.substring(0,1)"/>
 							<assign name="AI_2_bid" expr="AI_2_bid.substring(1)"/>
 							<assign name="current_bid" expr="copy(AI_2_bid)" />
@@ -72,9 +73,11 @@
 									<break/>Player 3 is bidding <break/>
 									<voice gender="male">
 									<if cond="insert_break=='p'">
-									<break/> <break/>
+										<break time="2000"/> <voice age="6"><value expr="AI_2_bid"/> <break/></voice>
+									<else/>
+										<voice age="6"><value expr="AI_2_bid"/> <break/></voice>
 									</if>
-									<voice age="6"><value expr="AI_2_bid"/> <break/></voice>
+									
 									</voice>
 								</prompt>
 								<clear namelist="bid"/>
