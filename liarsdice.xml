@@ -178,26 +178,26 @@
 				<if cond="winner">
 					<prompt bargein="false">
 						The bid was true
-						<value expr="last_bidder"/> wins
-						<value expr="lie_caller"/> loses
+						The winner is <value expr="last_bidder"/>
+						The loser is <value expr="lie_caller"/>
 					</prompt>
 				<else/>
 					<prompt bargein="false">
 						The bid was false
-						<value expr="lie_caller"/> wins
-						<value expr="last_bidder"/> loses
+						The winner is <value expr="lie_caller"/>
+						The loser is <value expr="last_bidder"/>
 					</prompt>
 				</if>
 			<else/>
 				<if cond="winner">
 					<prompt bargein="false">
 						The bid was true
-						<value expr="last_bidder"/> wins
+						The winner is <value expr="last_bidder"/>
 					</prompt>
 				<else/>
 					<prompt bargein="false">
 						The bid was false
-						<value expr="last_bidder"/> loses
+						The loser is <value expr="last_bidder"/>
 					</prompt>
 				</if>
 			</if>
