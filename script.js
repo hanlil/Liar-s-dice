@@ -187,7 +187,7 @@ function AI1(string_bid, AI_1_dices,bool_pause){
 		var previous_bid = convert_from_string_to_int_bid(string_bid);
 		next_bid = AI1_int(previous_bid, AI_1_dices);
 		if(next_bid[0]==0){
-			return "liar";
+			return "nliar";
 		}
 		else{
 			return "n"+convert_from_int_to_string_bid(next_bid);
@@ -197,7 +197,7 @@ function AI1(string_bid, AI_1_dices,bool_pause){
 		var previous_bid = convert_from_string_to_int_bid(string_bid);
 		next_bid = AI1_int(previous_bid, AI_1_dices);
 		if(next_bid[0]==0){
-			return "liar";
+			return "nliar";
 		}
 		else{
 			if(next_bid[2]){
@@ -251,7 +251,7 @@ function AI2(string_bid, AI_2_dices,bool_pause){
 		var previous_bid = convert_from_string_to_int_bid(string_bid);
 		next_bid = AI2_int(previous_bid, AI_2_dices);
 		if(next_bid[0]==0){
-			return "liar";
+			return "nliar";
 		}
 		else{
 			return "n"+convert_from_int_to_string_bid(next_bid);
@@ -261,7 +261,7 @@ function AI2(string_bid, AI_2_dices,bool_pause){
 		var previous_bid = convert_from_string_to_int_bid(string_bid);
 		next_bid = AI2_int(previous_bid, AI_2_dices);
 		if(next_bid[0]==0){
-			return "liar";
+			return "nliar";
 		}
 		else{
 			if(next_bid[2]){
