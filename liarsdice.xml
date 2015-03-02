@@ -36,9 +36,7 @@
 		</field>
 		<var name="AI_1_bid"/>
 		<var name="AI_2_bid"/>
-		<var name="AI_1_array"/>
-		<var name="AI_2_array"/>
-		<var name="insert_break" expr="false"/>
+		<var name="insert_break" expr="n"/>
 		<var name="current_bid" expr="'zero zero'"/>
 		<var name="last_bidder"/>
 		<var name="lie_caller"/>
@@ -51,29 +49,29 @@
 						<prompt>
 							Your bid is <value expr="bid"/>
 						</prompt>
-						<assign name="AI_1_array" expr="AI1(bid,AI_1_dice,pause)"/>
-						<assign name="AI_1_bid" expr="AI_1_array[1]"/>
-						<assign name="insert_break" expr="AI_1_array[0]"/>
+						<assign name="AI_1_bid" expr="AI1(bid,AI_1_dice,pause)"/>
+						<assign name="insert_break" expr="AI_1_bid.substring(0,1)"/>
+						<assign name="AI_1_bid" expr="AI_1_bid.substring(1)"/>
 						<assign name="current_bid" expr="copy(AI_1_bid)"/>
 						<if cond="AI_1_bid != 'liar'">
 							<prompt>
 								<break/>Player 2 is bidding <break/>
 								<voice gender="male">
-								<if cond="insert_break">
+								<if cond="insert_break=='p'">
 								<break/> <break/>
 								</if>
 								<value expr="AI_1_bid"/> <break/>
 								</voice>
 							</prompt>
-							<assign name="AI_2_array" expr="AI2(AI_1_bid,AI_2_dice,pause)"/>
-							<assign name="AI_2_bid" expr="AI_2_array[1]"/>
-							<assign name="insert_break" expr="AI_2_array[0]"/>
+							<assign name="AI_2_bid" expr="AI1(bid,AI_2_dice,pause)"/>
+							<assign name="insert_break" expr="AI_2_bid.substring(0,1)"/>
+							<assign name="AI_2_bid" expr="AI_2_bid.substring(1)"/>
 							<assign name="current_bid" expr="copy(AI_2_bid)" />
 							<if cond="AI_2_bid != 'liar'">
 								<prompt bargein="false">
 									<break/>Player 3 is bidding <break/>
 									<voice gender="male">
-									<if cond="insert_break">
+									<if cond="insert_break=='p'">
 									<break/> <break/>
 									</if>
 									<voice age="6"><value expr="AI_2_bid"/> <break/></voice>
