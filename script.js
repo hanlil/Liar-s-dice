@@ -59,7 +59,7 @@ function convert_from_int_to_string_bid_pause(int_bid){
 	var pause = int_bid[2];
 	var string_pause = "";
 	if(pause!=0){
-		string_pause = " </break> </break>";
+		string_pause = "<break/> <break/>";
 	}
 	if(int_bid[0]>1){
 		if(int_bid[1]==6){
