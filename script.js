@@ -190,7 +190,7 @@ function AI1(string_bid, AI_1_dices,bool_pause){
 			return "liar";
 		}
 		else{
-			return [false,convert_from_int_to_string_bid(next_bid)];
+			return "n"+convert_from_int_to_string_bid(next_bid);
 		};
 	}
 	else{
@@ -200,7 +200,12 @@ function AI1(string_bid, AI_1_dices,bool_pause){
 			return "liar";
 		}
 		else{
-			return [next_bid[2],convert_from_int_to_string_bid_pause(next_bid)];
+			if(next_bid[2]){
+				return "p"+convert_from_int_to_string_bid_pause(next_bid);
+			}
+			else{
+				return "n"+convert_from_int_to_string_bid_pause(next_bid);
+			}
 		};
 	}
 }
