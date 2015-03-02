@@ -150,19 +150,19 @@ function AI1_int(previous_bid, AI_1_dices){
 	var prob = probability_global(previous_bid[0]+1,previous_bid[1],AI_1_dices);
 	var max_prob = 0;
 	var max_face = 0;
-	var pause = 0;
+	var pause = false;
 	var prob_higher = probability_global(previous_bid[0]+2,previous_bid[1],AI_1_dices);
 	if(prob_higher == 1){
-		pause = 1;
+		pause = true;
 	}
 	if(prob != 1){
-		pause = 1;
+		pause = true;
 	}
 	if(prob >= threshold){
 		return [previous_bid[0]+1,previous_bid[1],pause];
 	}
 	else{
-		pause = 0;
+		pause = false;
 		for(var i=previous_bid[1]+1; i<7;i++){
 			prob = probability_global(previous_bid[0],i,AI_1_dices);
 			if(prob>max_prob){
@@ -172,7 +172,7 @@ function AI1_int(previous_bid, AI_1_dices){
 		};
 	};
 	if(max_prob != 1){
-		pause = 1;
+		pause = true;
 	}
 	if(max_prob >= threshold){
 		return [previous_bid[0],max_face,pause];
