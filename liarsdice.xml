@@ -144,7 +144,7 @@
 		</filled>
 		<field name="reveal">
 			<grammar src="grammar.xml#REVEAL"/>
-			<prompt>
+			<prompt bargein="false">
 				Now we will reveal the dice. Player 2 will begin <break/>
 				<voice gender="male"><value expr="AI_1_dice"/></voice>
 				<break/>Now, it is your turn to reveal all your dice
