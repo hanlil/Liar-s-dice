@@ -26,7 +26,7 @@
 		</field>
 		<var name="AI_1_dice" expr="roll_dices()"/>
 		<var name="AI_2_dice" expr="roll_dices()"/>
-		<var name="pause" expr="false"/>
+		<var name="pause" expr="true"/>
 		<field name="bid">
 			<grammar src="grammar.xml#BID"/>
 			<prompt>Make your bid</prompt>
