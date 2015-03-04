@@ -74,8 +74,8 @@
 							<assign name="AI_2_bid" expr="AI1(AI_1_bid,AI_2_dice,pause)"/>
 							<assign name="insert_break" expr="AI_2_bid.substring(0,1)"/>
 							<assign name="AI_2_bid" expr="AI_2_bid.substring(1)"/>
-							<assign name="current_bid" expr="copy(AI_2_bid)" />
 							<if cond="AI_2_bid != 'liar'">
+								<assign name="current_bid" expr="copy(AI_2_bid)" />
 								<prompt bargein="false">
 									<break/>Player 3 is bidding <break/>
 								</prompt>
